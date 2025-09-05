@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Geovisor SAR‑FAB — Ruta con distintivos O/D</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-measure@3.3.0/dist/leaflet-measure.css"/>
+  <style>
+    :root{ --bg:#0b1020; --fg:#0f172a; --mut:#64748b; --card:#ffffff; --accent:#2563eb; }
+    html, body { height: 100%; margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:#f8fafc; }
+    #map { height: 100vh; width: 100%; }
+    .toolbar { position: fixed; top: 12px; left: 12px; right: 12px; z-index: 1100; display:flex; flex-wrap:wrap; gap:8px; align-items:center; background:var(--card); padding:10px; border-radius:12px; box-shadow:0 10px 28px rgba(2,8,20,.12); border:1px solid #e5e7eb; }
+    .toolbar h1 { font-size: 16px; margin:0 8px 0 0; color:#0f172a; font-weight:700; }
+    .btn { background:#111827; color:#fff; border:none; padding:8px 10px; border-radius:10px; cursor:pointer; font-size:13px; }
+    .btn.secondary { background:#374151; }
+    .btn:disabled{ opacity:.6; cursor:not-allowed; }
+    .pill { padding:4px 8px; border-radius:999px; font-size:12px; background:#e2e8f0; color:#111827; }
+    .mini { font-size:12px; padding:6px 8px; border-radius:8px; }
+    input[type=file]{ display:none; }
+    .sidepanel { position: fixed; top: 68px; right: 12px; width: 380px; max-height: calc(100vh - 84px); overflow:auto; z-index: 1050; background:var(--card); border:1px solid #e5e7eb; border-radius:12px; box-shadow:0 10px 28px rgba(2,8,20,.12); }
+    .sidepanel header { padding:12px; border-bottom:1px solid #e5e7eb; font-weight:600; display:flex; justify-content:space-between; align-items:center; }
+    .sidepanel .inner { padding:10px 12px; display:grid; gap:10px; }
+    .drop { border:2px dashed #cbd5e1; border-radius:12px; padding:10px; text-align:center; color:#475569; font-size:13px; }
+    .drop.drag { background:#f1f5f9; border-color:#94a3b8; }
+    .legend { border:1px solid #e5e7eb; border-radius:10px; padding:8px; background:#fff; }
+    .legend h4 { margin:4px 0 8px 0; font-size:13px; }
+    .legend-item { display:flex; align-items:center; gap:8px; font-size:13px; margin:2px 0; }
+    .sym { width:18px; height:18px; border-radius:50%; border:1px solid rgba(0,0,0,.3); }
+    .line { width:22px; height:3px; border-radius:2px; }
+    .poly { width:18px; height:18px; border-radius:3px; border:1px solid rgba(0,0,0,.3); }
+    .card { border:1px solid #e5e7eb; border-radius:10px; padding:10px; background:#fff; }
+    .row { display:flex; gap:8px; align-items:center; }
+    .row label { font-size:12px; color:#334155; }
+    .row input[type=text], .row select { flex:1; border:1px solid #e5e7eb; border-radius:8px; padding:6px 8px; }
+    .layer { border:1px solid #e5e7eb; border-radius:10px; padding:8px; display:grid; gap:8px; }
+    .layer-row { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    .layer-title { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#0f172a; }
+    .chip { width:14px; height:14px; border-radius:3px; border:1px solid rgba(0,0,0,.2); }
+    .layer-tools { display:flex; flex-wrap:wrap; gap:6px; }
+    .iconbtn { border:1px solid #e5e7eb; background:#fff; border-radius:8px; padding:6px; cursor:pointer; }
+    .iconbtn:hover{ background:#f8fafc; }
+
+    /* --- Distintivos ORIGEN/DESTINO --- */
+    .od-icon { position: relative; transform: translate(-50%, -50%); }
+    .od-pin { width: 18px; height: 18px; border-radius: 50%; border:2px solid #ffffff; box-shadow: 0 0 0 2px rgba(0,0,0,.25); }
+    .od-badge { position: absolute; top: -10px; right: -12px;
+      min-width: 18px; height: 18px; padding: 0 4px;
+      display:flex; align-items:center; justify-content:center;
+      font: 700 11px/1 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: #fff; border-radius: 999px; box-shadow: 0 1px 2px rgba(0,0,0,.25);
+    }
+    .od-pin.origin { background: #10b981; }         /* verde */
+    .od-pin.dest { background: #ef4444; }           /* rojo */
+    .od-badge.origin { background: #065f46; }       /* badge oscuro verde */
+    .od-badge.dest { background: #7f1d1d; }         /* badge oscuro rojo */
+    .od-pulse { position:absolute; top:50%; left:50%; width:18px; height:18px; border-radius:50%; transform: translate(-50%,-50%); }
+    .od-pulse::after {
+      content:''; position:absolute; inset:0; border-radius:50%;
+      animation: pulse 1.6s infinite;
+      border: 3px solid currentColor; opacity:.6;
+    }
+    .od-pulse.origin { color:#10b981; }
+    .od-pulse.dest { color:#ef4444; }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity:.7; }
+      70% { transform: scale(1.8); opacity: 0; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+    
+    /* --- Estilos para el panel de WMS --- */
+    .wms-panel { border:1px solid #e5e7eb; border-radius:10px; padding:10px; background:#fff; }
+    .wms-panel h3 { margin:0 0 10px 0; font-size:14px; color:#0f172a; }
+    .wms-form { display:grid; gap:8px; margin-bottom:10px; }
+    .wms-form input { border:1px solid #e5e7eb; border-radius:8px; padding:6px 8px; font-size:12px; }
+    .wms-form button { background:#111827; color:#fff; border:none; padding:6px 8px; border-radius:8px; cursor:pointer; font-size:12px; }
+    .wms-layer-item { display:flex; align-items:center; gap:8px; margin:6px 0; }
+    .wms-layer-item input[type="checkbox"] { margin:0; }
+    .wms-layer-item label { font-size:12px; cursor:pointer; }
+    
+    /* --- Leyenda de Cobertura de Suelo NASA --- */
+    .nasa-legend { margin-top: 10px; padding: 8px; background: white; border-radius: 4px; box-shadow: 0 1px 5px rgba(0,0,0,0.4); max-width: 200px; }
+    .nasa-legend h4 { margin: 0 0 8px 0; font-size: 12px; }
+    .nasa-legend-item { display: flex; align-items: center; margin-bottom: 4px; }
+    .nasa-color-box { width: 20px; height: 12px; margin-right: 6px; border: 1px solid #555; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div class="toolbar" id="toolbar">
+    <h1>Geovisor SAR‑FAB</h1>
+    <span class="pill">HTML</span>
+    <button class="btn" id="btnLoadZip">Cargar Shapefile (.zip)</button>
+    <button class="btn secondary" id="btnLoadOther">Cargar GeoJSON/KML</button>
+    <button class="btn secondary" id="btnClear">Limpiar capas</button>
+    <div class="row" style="margin-left:auto">
+      <label>Campo etiqueta:</label>
+      <input type="text" id="labelField" placeholder="p.ej. NOMBRE" />
+      <button class="btn mini" id="applyLabels">Aplicar</button>
+    </div>
+    <input type="file" id="fileZip" accept=".zip" multiple>
+    <input type="file" id="fileOther" accept=".geojson,.json,.kml" multiple>
+  </div>
+  <div class="sidepanel" id="panel">
+    <header>
+      <span>Capas y Herramientas</span>
+      <span id="layerCount" style="font-size:12px;color:#475569">0</span>
+    </header>
+    <div class="inner">
+      <div class="drop" id="drop">Arrastra aquí tus <b>.zip</b> (Shapefile) o <b>.geojson/.kml</b></div>
+      
+      <!-- Panel para cargar capas WMS externas -->
+      <div class="wms-panel">
+        <h3>Capas WMS</h3>
+        <div class="wms-form">
+          <input type="text" id="wmsUrl" placeholder="URL del servicio WMS" />
+          <input type="text" id="wmsLayers" placeholder="Nombres de capas (separadas por coma)" />
+          <input type="text" id="wmsName" placeholder="Nombre para mostrar" />
+          <input type="text" id="wmsFormat" placeholder="Formato (image/png por defecto)" value="image/png" />
+          <button id="btnAddWms">Agregar capa WMS</button>
+        </div>
+        
+        <!-- Lista de capas WMS disponibles -->
+        <div id="wmsLayersList">
+          <div class="wms-layer-item">
+            <input type="checkbox" id="wmsTopo" checked />
+            <label for="wmsTopo">OpenTopoMap</label>
+          </div>
+          <div class="wms-layer-item">
+            <input type="checkbox" id="wmsNasa" />
+            <label for="wmsNasa">NASA Blue Marble</label>
+          </div>
+          <div class="wms-layer-item">
+            <input type="checkbox" id="wmsServir" />
+            <label for="wmsServir">SERVIR Amazonía</label>
+          </div>
+          <div class="wms-layer-item">
+            <input type="checkbox" id="wmsLandCover" />
+            <label for="wmsLandCover">NASA Cobertura de Suelo (MODIS)</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="legend" id="legend">
+        <h4>Leyenda</h4>
+        <div class="layer-note" style="margin-bottom:6px">Símbolos por geometría (punto/línea/polígono) y color por capa.</div>
+        <div id="legendItems"></div>
+      </div>
+      <div class="card">
+        <div class="row"><b>Herramientas</b></div>
+        <div class="row">Medición (regla) y dibujo de rutas (lápiz) en el mapa.</div>
+        <div class="row">Buffers con botones en cada capa.</div>
+      </div>
+      <div class="card">
+        <div class="row"><b>Análisis de red (offline)</b></div>
+        <div class="row">Selecciona capa <b>lineal</b> como red → define Origen/Destino → Ruta más corta.</div>
+        <div class="row">
+          <label>Red vial:</label>
+          <select id="networkSelect"></select>
+        </div>
+        <div class="row">
+          <button class="btn mini" id="btnPickStart">Origen</button>
+          <button class="btn mini" id="btnPickEnd">Destino</button>
+          <button class="btn mini" id="btnRoute">Calcular ruta</button>
+        </div>
+        <div class="row">
+          <label>Velocidad (km/h):</label>
+          <input type="text" id="speedKmh" value="40" style="width:90px"/>
+          <button class="btn mini" id="btnClearRoute">Limpiar ruta</button>
+        </div>
+        <div class="row" id="routeInfo">Sin ruta.</div>
+      </div>
+      <div id="layers"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+  <script src="https://unpkg.com/leaflet-measure@3.3.0/dist/leaflet-measure.min.js"></script>
+  <script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
+  <script src="https://unpkg.com/shpjs@latest/dist/shp.min.js"></script>
+  <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.4/leaflet-omnivore.min.js"></script>
+
+  <script>
+    // --- MAPA Y BASES ---
+    const map = L.map('map').setView([-16.5, -68.15], 7);
+    const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap' }).addTo(map);
+    const gSat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', { attribution: 'Imagery © Google' });
+    const gHyb = L.tileLayer('https://mt1.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', { attribution: 'Imagery © Google' });
+    const gTer = L.tileLayer('https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', { attribution: 'Terrain © Google' });
+    
+    // Capas WMS predefinidas
+    const wmsTopo = L.tileLayer.wms('https://ows.mundialis.de/services/service?', {
+      layers: 'TOPO-WMS',
+      format: 'image/png',
+      transparent: true,
+      attribution: '© <a href="https://www.mundialis.de/">mundialis</a>'
+    });
+    
+    const wmsNasa = L.tileLayer.wms('https://tiles.maps.eox.at/wms?', {
+      layers: 's2cloudless-2020_3857',
+      format: 'image/jpeg',
+      attribution: '© <a href="https://eox.at/">EOX</a>'
+    });
+    
+    const wmsServir = L.tileLayer.wms('https://gis.servirglobal.net/arcgis/services/Regional/Amazonia_Fires/MapServer/WMSServer?', {
+      layers: '0',
+      format: 'image/png',
+      transparent: true,
+      attribution: '© <a href="https://servirglobal.net/">SERVIR</a>'
+    });
+    
+    // Capa WMS de Cobertura de Suelo de la NASA (MODIS Land Cover)
+    const wmsLandCover = L.tileLayer.wms('https://neo.sci.gsfc.nasa.gov/wms/wms', {
+      layers: 'MOD12C1_T1_Land_Cover_Type_1',
+      format: 'image/png',
+      transparent: true,
+      attribution: '© <a href="https://neo.sci.gsfc.nasa.gov/">NASA NEO</a>',
+      opacity: 0.7
+    });
+    
+    const baseLayers = { 
+      'OpenStreetMap': osm, 
+      'Google Satélite': gSat, 
+      'Google Híbrido': gHyb, 
+      'Google Topografía': gTer 
+    };
+    
+    const overlays = {
+      'OpenTopoMap (WMS)': wmsTopo,
+      'NASA Blue Marble (WMS)': wmsNasa,
+      'SERVIR Amazonía (WMS)': wmsServir,
+      'NASA Cobertura de Suelo (WMS)': wmsLandCover
+    };
+    
+    L.control.layers(baseLayers, overlays, { collapsed:true, position:'topleft' }).addTo(map);
+
+    // Crear leyenda para la cobertura de suelo de la NASA
+    const nasaLegend = L.control({position: 'bottomright'});
+    nasaLegend.onAdd = function(map) {
+      const div = L.DomUtil.create('div', 'nasa-legend');
+      div.innerHTML = `
+        <h4>NASA Cobertura de Suelo</h4>
+        <div class="nasa-legend-item"><div class="nasa-color-box" style="background:#0b6623"></div> Bosque</div>
+        <div class="nasa-legend-item"><div class="nasa-color-box" style="background:#7cfc00"></div> Sabana</div>
+        <div class="nasa-legend-item"><div class="nasa-color-box" style="background:#8fbc8f"></div> Praderas</div>
+        <div class="nasa-legend-item"><div class="nasa-color-box" style="background:#f5f5dc"></div> Tierras áridas</div>
+        <div class="nasa-legend-item"><div class="nasa-color-box" style="background:#ffff00"></div> Cultivos</div>
+        <div class="nasa-legend-item"><div class="nasa-color-box" style="background:#ffa500"></div> Urbano</div>
+        <div class="nasa-legend-item"><div class="nasa-color-box" style="background:#0000ff"></div> Agua</div>
+      `;
+      return div;
+    };
+    nasaLegend.addTo(map);
+
+    // UI no captura clics del mapa
+    [document.getElementById('toolbar'), document.getElementById('panel')].forEach(el => {
+      if (el && L && L.DomEvent) { L.DomEvent.disableClickPropagation(el); L.DomEvent.disableScrollPropagation(el); }
+    });
+
+    // --- MEDICIÓN Y DIBUJO ---
+    try { if (L.control && typeof L.control.measure === 'function') L.control.measure({ primaryLengthUnit: 'kilometers', secondaryLengthUnit: 'meters' }).addTo(map); } catch(e) {}
+    const drawnLayer = new L.FeatureGroup().addTo(map);
+    const drawControl = new L.Control.Draw({ draw: { polygon:false, rectangle:false, circle:false, marker:false, circlemarker:false, polyline:true }, edit: { featureGroup: drawnLayer } });
+    map.addControl(drawControl);
+    map.on(L.Draw.Event.CREATED, function (e) {
+      const layer = e.layer; drawnLayer.addLayer(layer);
+      try { const km=turf.length(layer.toGeoJSON(), {units:'kilometers'}); layer.bindPopup('Longitud: <b>'+km.toFixed(3)+' km</b>').openPopup(); } catch(_){}
+    });
+
+    // --- UTILIDADES ---
+    const $ = (id) => document.getElementById(id);
+    const panelList = $('layers');
+    const legendItems = $('legendItems');
+    const layerCount = $('layerCount');
+    const labelFieldInput = $('labelField');
+    const bounds = L.latLngBounds([]);
+    const meta = {}; // name -> { type, color, labelField }
+    const networkSelect = $('networkSelect');
+
+    function hashColor(str){ let h=0; for(let i=0;i<str.length;i++){ h = (h*31 + str.charCodeAt(i))>>>0; } const hues=[210,150,355,25,265,190,135,310,20,95]; const hue=hues[h%hues.length]; return `hsl(${hue} 80% 45%)`; }
+    function geomType(geojson){ let p=0,l=0,pl=0; (geojson.features||[]).forEach(f=>{ const t=f.geometry && f.geometry.type || ''; if(/Point/.test(t)) p++; else if(/Line/.test(t)) l++; else pl++; }); return (p>l && p>pl)?'point':(l>pl?'line':'poly'); }
+    function colorFor(name, type){ const base = hashColor(name); if(type==='point') return base; if(type==='line') return base.replace('45%','35%'); return base.replace('45%','70%'); }
+    function swatch(type,color){ if(type==='point') return `<span class="sym" style="background:${color}"></span>`; if(type==='line') return `<span class="line" style="background:${color}"></span>`; return `<span class="poly" style="background:${color}"></span>`; }
+    function addLegendEntry(name, type, color){ const div=document.createElement('div'); div.className='legend-item'; div.dataset.layerName=name; div.innerHTML=`${swatch(type,color)} <span>${name} – ${type}</span>`; legendItems.appendChild(div); }
+    function removeLegendEntry(name){ [...legendItems.children].forEach(n=>{ if(n.dataset.layerName===name) legendItems.removeChild(n); }); }
+    function updateCount(){ layerCount.textContent = Object.keys(overlays).length; updateNetworkSelect(); }
+    function updateNetworkSelect(){ const names=Object.keys(overlays).filter(n=> meta[n]?.type==='line'); const current=networkSelect.value; networkSelect.innerHTML=''; names.forEach(n=>{ const opt=document.createElement('option'); opt.value=n; opt.textContent=n; networkSelect.appendChild(opt); }); if(names.includes(current)) networkSelect.value=current; }
+
+    function addLabels(layer, field){
+      layer.eachLayer(l=>{ if(l.unbindTooltip) l.unbindTooltip(); });
+      if(!field) return;
+      layer.eachLayer(l=>{ try{ const props=l.feature && l.feature.properties || {}; const txt=props[field]; if(txt!==undefined && txt!==null){ l.bindTooltip(String(txt), {permanent:true, direction:'center', className:'lbl'}); } }catch(_){} });
+    }
+
+    function createLayerCard(name, type, color, layer){
+      const wrap = document.createElement('div'); wrap.className='layer'; wrap.dataset.layerName=name;
+      const top = document.createElement('div'); top.className='layer-row';
+      const labelWrap = document.createElement('label'); labelWrap.className='layer-title';
+      const chk = document.createElement('input'); chk.type='checkbox'; chk.checked=true; chk.addEventListener('change', ()=>{ if(chk.checked) layer.addTo(map); else map.removeLayer(layer); });
+      const chip = document.createElement('span'); chip.className='chip'; chip.style.background = (type==='poly')?color:'transparent'; chip.style.border = (type==='poly')?'1px solid rgba(0,0,0,.2)':'1px solid '+color;
+      const nameSpan = document.createElement('span'); nameSpan.textContent = name;
+      labelWrap.appendChild(chk); labelWrap.appendChild(chip); labelWrap.appendChild(nameSpan);
+      const tools = document.createElement('div'); tools.className='layer-tools';
+      const btnZoom = document.createElement('button'); btnZoom.className='iconbtn'; btnZoom.title='Zoom'; btnZoom.textContent='🔍'; btnZoom.addEventListener('click', ()=>{ try{ map.fitBounds(layer.getBounds().pad(0.1)); }catch(_){} });
+      const btnDel  = document.createElement('button'); btnDel.className='iconbtn'; btnDel.title='Quitar'; btnDel.textContent='🗑️'; btnDel.addEventListener('click', ()=>{ map.removeLayer(layer); delete overlays[name]; delete meta[name]; wrap.remove(); removeLegendEntry(name); updateCount(); });
+      const btnDl  = document.createElement('button'); btnDl.className='iconbtn'; btnDl.title='Descargar GeoJSON'; btnDl.textContent='💾'; btnDl.addEventListener('click', ()=>{ try{ const gj=layer.toGeoJSON(); const blob=new Blob([JSON.stringify(gj,null,2)],{type:'application/json'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=name+'.geojson'; a.click(); URL.revokeObjectURL(url);}catch(err){ alert('No se pudo exportar la capa.'); } });
+      tools.appendChild(btnZoom); tools.appendChild(btnDel); tools.appendChild(btnDl);
+      top.appendChild(labelWrap); top.appendChild(tools);
+      const note = document.createElement('div'); note.className='layer-note'; note.innerHTML = `Tipo: <b>${type}</b> · Color: <span style="display:inline-block;width:10px;height:10px;background:${color};border:1px solid rgba(0,0,0,.2);"></span>`;
+      const bufRow = document.createElement('div'); bufRow.className='layer-row';
+      const bufLabel = document.createElement('span'); bufLabel.textContent = 'Buffer:'; bufLabel.style.fontSize='12px'; bufLabel.style.color='#334155';
+      bufRow.appendChild(bufLabel);
+      function mkBtn(txt, meters){ const b=document.createElement('button'); b.className='iconbtn'; b.textContent=txt; b.title=txt; b.addEventListener('click', ()=> makeBufferLayer(name, layer, meters)); return b; }
+      if(type==='line'){ bufRow.appendChild(mkBtn('100m',100)); bufRow.appendChild(mkBtn('500m',500)); bufRow.appendChild(mkBtn('1000m',1000)); }
+      else if(type==='point'){ bufRow.appendChild(mkBtn('1000m',1000)); bufRow.appendChild(mkBtn('5000m',5000)); bufRow.appendChild(mkBtn('10000m',10000)); }
+      else { const span=document.createElement('span'); span.textContent='(no definido)'; span.style.color='#64748b'; bufRow.appendChild(span); }
+      wrap.appendChild(top); wrap.appendChild(note); wrap.appendChild(bufRow);
+      panelList.prepend(wrap);
+    }
+
+    function addGeoJSONLayer(name, data){
+      const type = geomType(data); const color = colorFor(name, type);
+      const style = { color: type==='line'? color : '#111827', weight: type==='line'? 2 : 1.2, fillColor: type==='poly'? color : undefined, fillOpacity: type==='poly'? .25 : 0 };
+      const layer = L.geoJSON(data, {
+        style,
+        pointToLayer: (f, latlng)=> L.circleMarker(latlng, { radius: 6, color: color, weight: 1.5, fillColor: color, fillOpacity:.9 }),
+        onEachFeature: (f, l)=>{ const props=f.properties||{}; const lf=meta[name]?.labelField || labelFieldInput.value || ''; const title=(lf && props[lf]!==undefined)? props[lf] : (props.nombre||props.name||name); l.bindPopup(`<b>${title}</b><br><pre style="white-space:pre-wrap;font-size:11px;">${JSON.stringify(props,null,2)}</pre>`); }
+      });
+      overlays[name]=layer; layer.addTo(map); meta[name] = { type, color, labelField: labelFieldInput.value || '' };
+      addLabels(layer, meta[name].labelField);
+      try{ bounds.extend(layer.getBounds()); map.fitBounds(bounds.pad(0.1)); }catch(_){ }
+      addLegendEntry(name, type, color);
+      createLayerCard(name, type, color, layer);
+      updateCount();
+    }
+
+    function makeBufferLayer(baseName, layer, meters){
+      const gj = layer.toGeoJSON();
+      const buf = turf.buffer(gj, meters, {units:'meters'});
+      const name = `${baseName} – buffer ${meters}m`;
+      const color = '#ef4444';
+      const out = L.geoJSON(buf, { style:{ color:'#7f1d1d', weight:1.2, fillColor:color, fillOpacity:.25 }, onEachFeature:(f,l)=> l.bindPopup(`<b>${name}</b>\n<pre style="white-space:pre-wrap;font-size:11px;">${JSON.stringify(f.properties||{},null,2)}</pre>`) }).addTo(map);
+      overlays[name]=out; meta[name]={ type:'poly', color };
+      addLegendEntry(name, 'poly', color); createLayerCard(name, 'poly', color, out);
+      try{ map.fitBounds(out.getBounds().pad(0.1)); }catch(_){}
+    }
+
+    function layerNameFrom(file){ return (file.name||'capa').replace(/\.(zip|geojson|json|kml)$/i,''); }
+
+    async function handleZipFile(file){
+      const name=layerNameFrom(file);
+      if (typeof shp === 'undefined') { alert('Biblioteca shpjs no cargada. Verifica conexión.'); return; }
+      try{ const geojson=await shp(await file.arrayBuffer()); addGeoJSONLayer(name, geojson); }
+      catch(err){ alert('No se pudo leer el .zip como Shapefile. Incluye .shp + .dbf + .shx (y .prj).'); }
+    }
+
+    async function handleOtherFile(file){
+      const name=layerNameFrom(file); const ext=(file.name.split('.').pop()||'').toLowerCase();
+      if(ext==='geojson'||ext==='json'){
+        const text=await file.text(); addGeoJSONLayer(name, JSON.parse(text));
+      } else if(ext==='kml'){
+        const url=URL.createObjectURL(file);
+        const layer=omnivore.kml(url).on('ready', function(){ try{ map.fitBounds(this.getBounds().pad(0.1)); }catch(_){} });
+        overlays[name]=layer; meta[name]={ type:'vector', color:'#334155' }; layer.addTo(map);
+        addLegendEntry(name,'line','#334155'); createLayerCard(name,'vector','#334155',layer); updateCount();
+      }
+    }
+
+    // --- BOTONES ---
+    $('btnLoadZip').addEventListener('click', ()=> $('fileZip').click());
+    $('btnLoadOther').addEventListener('click', ()=> $('fileOther').click());
+    $('btnClear').addEventListener('click', ()=>{
+      Object.values(overlays).forEach(l=> map.removeLayer(l));
+      for(const k in overlays) delete overlays[k];
+      for(const k in meta) delete meta[k];
+      panelList.innerHTML=''; legendItems.innerHTML='';
+      updateCount(); clearRoute(); graph=null;
+    });
+    $('fileZip').addEventListener('change', (e)=>{ [...e.target.files].forEach(handleZipFile); e.target.value=''; });
+    $('fileOther').addEventListener('change', (e)=>{ [...e.target.files].forEach(handleOtherFile); e.target.value=''; });
+    $('applyLabels').addEventListener('click', ()=>{
+      const field=labelFieldInput.value.trim();
+      Object.entries(overlays).forEach(([name,layer])=>{ if(meta[name]){ meta[name].labelField=field; addLabels(layer, field); } });
+    });
+
+    // --- DRAG & DROP ---
+    const drop = $('drop');
+    ['dragenter','dragover'].forEach(evt=> drop.addEventListener(evt, (ev)=>{ ev.preventDefault(); drop.classList.add('drag'); }));
+    ['dragleave','drop'].forEach(evt=> drop.addEventListener(evt, (ev)=>{ ev.preventDefault(); drop.classList.remove('drag'); }));
+    drop.addEventListener('drop', (ev)=>{
+      ev.preventDefault();
+      const files=ev.dataTransfer.files;
+      [...files].forEach(f=>{
+        const ext=(f.name.split('.').pop()||'').toLowerCase();
+        if(ext==='zip') handleZipFile(f);
+        else if(['geojson','json','kml'].includes(ext)) handleOtherFile(f);
+      });
+    });
+
+    // --- ANÁLISIS DE RED + DISTINTIVOS O/D ---
+    let graph=null, startMarker=null, endMarker=null, routeLayer=null, picking='';
+    const routeMarkersLayer = L.layerGroup().addTo(map);
+
+    function lengthHaversine(a,b){ const R=6371000; const toRad=x=>x*Math.PI/180; const dLat=toRad(b.lat-a.lat), dLng=toRad(b.lng-a.lng); const sa=Math.sin(dLat/2), sb=Math.sin(dLng/2); const A=sa*sa + Math.cos(toRad(a.lat))*Math.cos(toRad(b.lat))*sb*sb; return 2*R*Math.asin(Math.sqrt(A)); }
+    function keyFrom(lat,lng){ return lat.toFixed(6)+','+lng.toFixed(6); }
+
+    function makeODIcon(type){ // 'origin' o 'dest'
+      const badge = type==='origin' ? 'O' : 'D';
+      const html = `<div class="od-icon">
+          <div class="od-pulse ${type}"></div>
+          <div class="od-pin ${type}"></div>
+          <div class="od-badge ${type}">${badge}</div>
+        </div>`;
+      return L.divIcon({ className: 'od-wrapper', html, iconSize: [24,24], iconAnchor: [12,12] });
+    }
+
+    function buildGraphFromLayer(layer){
+      const gj = layer.toGeoJSON();
+      const nodes = {}; const index=[];
+      function addNode(lat,lng){ const k=keyFrom(lat,lng); if(!nodes[k]){ nodes[k]={lat,lng,adj:[]}; index.push(k);} return k; }
+      function addEdge(k1,k2){ if(k1===k2) return; const a=nodes[k1], b=nodes[k2]; const d=lengthHaversine({lat:a.lat,lng:a.lng},{lat:b.lat,lng:b.lng}); a.adj.push({to:k2, dist:d}); b.adj.push({to:k1, dist:d}); }
+      (gj.features||[]).forEach(f=>{ const g=f.geometry; if(!g) return;
+        if(g.type==='LineString'){ const c=g.coordinates; for(let i=0;i<c.length-1;i++){ const [lng1,lat1]=c[i]; const [lng2,lat2]=c[i+1]; const k1=addNode(lat1,lng1); const k2=addNode(lat2,lng2); addEdge(k1,k2);} }
+        else if(g.type==='MultiLineString'){ g.coordinates.forEach(c=>{ for(let i=0;i<c.length-1;i++){ const [lng1,lat1]=c[i]; const [lng2,lat2]=c[i+1]; const k1=addNode(lat1,lng1); const k2=addNode(lat2,lng2); addEdge(k1,k2);} }); }
+      });
+      return { nodes, index };
+    }
+
+    function nearestNodeKey(graph, latlng){ let best=null, bestD=Infinity; for(const k of graph.index){ const n=graph.nodes[k]; const d=lengthHaversine({lat:n.lat,lng:n.lng}, latlng); if(d<bestD){ bestD=d; best=k; } } return best; }
+
+    function dijkstra(graph, startKey, endKey){
+      const dist={}, prev={}, Q=new Set(graph.index);
+      graph.index.forEach(k=> dist[k]=Infinity); dist[startKey]=0;
+      while(Q.size){
+        let u=null, best=Infinity;
+        Q.forEach(k=>{ if(dist[k]<best){ best=dist[k]; u=k; } });
+        if(u===null) break;
+        Q.delete(u);
+        if(u===endKey) break;
+        for(const e of graph.nodes[u].adj){
+          const alt=dist[u]+e.dist;
+          if(alt<dist[e.to]){ dist[e.to]=alt; prev[e.to]=u; }
+        }
+      }
+      const path=[]; let u=endKey;
+      if(prev[u]||u===startKey){ while(u){ path.unshift(u); u=prev[u]; if(u===undefined) break; } }
+      return { path, distance: dist[endKey] };
+    }
+
+    function clearRoute(){
+      if(routeLayer){ map.removeLayer(routeLayer); routeLayer=null; }
+      if(startMarker){ routeMarkersLayer.removeLayer(startMarker); startMarker=null; }
+      if(endMarker){ routeMarkersLayer.removeLayer(endMarker); endMarker=null; }
+      $('routeInfo').textContent='Sin ruta.';
+    }
+
+    function drawRoute(graph, path){
+      if(routeLayer){ map.removeLayer(routeLayer); }
+      const latlngs=path.map(k=>[graph.nodes[k].lat, graph.nodes[k].lng]);
+      routeLayer = L.polyline(latlngs, { color:'#ff2d55', weight:4 }).addTo(map);
+      try{ map.fitBounds(routeLayer.getBounds().pad(0.1)); }catch(_){}
+    }
+
+    $('btnPickStart').addEventListener('click', ()=>{ picking='start'; $('routeInfo').textContent='Haz clic en el mapa para definir ORIGEN.'; });
+    $('btnPickEnd').addEventListener('click',   ()=>{ picking='end';   $('routeInfo').textContent='Haz clic en el mapa para definir DESTINO.'; });
+
+    $('btnRoute').addEventListener('click', ()=>{
+      const netName=networkSelect.value;
+      if(!netName){ alert('Selecciona la red vial.'); return; }
+      if(!graph){ graph=buildGraphFromLayer(overlays[netName]); }
+      if(!startMarker||!endMarker){ alert('Define origen y destino.'); return; }
+      const ks=nearestNodeKey(graph, startMarker.getLatLng());
+      const ke=nearestNodeKey(graph, endMarker.getLatLng());
+      const res=dijkstra(graph, ks, ke);
+      if(!res.path.length||!isFinite(res.distance)){ $('routeInfo').textContent='No se encontró ruta (red desconectada).'; return; }
+      drawRoute(graph, res.path);
+      const km=res.distance/1000; const speed=Math.max(1, parseFloat($('speedKmh').value)||40); const mins=Math.round((km/speed)*60);
+      $('routeInfo').textContent=`Distancia: ${km.toFixed(2)} km · Tiempo estimado: ${mins} min @ ${speed} km/h`;
+    });
+
+    $('btnClearRoute').addEventListener('click', ()=>{ clearRoute(); });
+
+    map.on('click', (e)=>{
+      if(!picking) return;
+      const netName=networkSelect.value; if(!netName || !overlays[netName]){ picking=''; return; }
+      if(!graph){ graph=buildGraphFromLayer(overlays[netName]); }
+      const k=nearestNodeKey(graph, {lat:e.latlng.lat, lng:e.latlng.lng});
+      const n=graph.nodes[k];
+      if(picking==='start'){
+        if(startMarker) routeMarkersLayer.removeLayer(startMarker);
+        startMarker = L.marker([n.lat, n.lng], { icon: makeODIcon('origin'), zIndexOffset: 1000 }).bindPopup('Origen');
+        routeMarkersLayer.addLayer(startMarker); startMarker.openPopup();
+      } else {
+        if(endMarker) routeMarkersLayer.removeLayer(endMarker);
+        endMarker = L.marker([n.lat, n.lng], { icon: makeODIcon('dest'), zIndexOffset: 1000 }).bindPopup('Destino');
+        routeMarkersLayer.addLayer(endMarker); endMarker.openPopup();
+      }
+      picking='';
+    });
+
+    // --- GESTIÓN DE CAPAS WMS ---
+    const wmsLayersList = $('wmsLayersList');
+    
+    // Control de las capas WMS predefinidas
+    $('wmsTopo').addEventListener('change', (e) => {
+      if (e.target.checked) {
+        wmsTopo.addTo(map);
+      } else {
+        map.removeLayer(wmsTopo);
+      }
+    });
+    
+    $('wmsNasa').addEventListener('change', (e) => {
+      if (e.target.checked) {
+        wmsNasa.addTo(map);
+      } else {
+        map.removeLayer(wmsNasa);
+      }
+    });
+    
+    $('wmsServir').addEventListener('change', (e) => {
+      if (e.target.checked) {
+        wmsServir.addTo(map);
+      } else {
+        map.removeLayer(wmsServir);
+      }
+    });
+    
+    $('wmsLandCover').addEventListener('change', (e) => {
+      if (e.target.checked) {
+        wmsLandCover.addTo(map);
+      } else {
+        map.removeLayer(wmsLandCover);
+      }
+    });
+    
+    // Función para agregar capas WMS externas
+    $('btnAddWms').addEventListener('click', () => {
+      const url = $('wmsUrl').value.trim();
+      const layers = $('wmsLayers').value.trim();
+      const name = $('wmsName').value.trim() || 'Capa WMS';
+      const format = $('wmsFormat').value.trim() || 'image/png';
+      
+      if (!url || !layers) {
+        alert('Por favor, ingresa la URL y las capas del servicio WMS.');
+        return;
+      }
+      
+      try {
+        // Crear capa WMS
+        const wmsLayer = L.tileLayer.wms(url, {
+          layers: layers,
+          format: format,
+          transparent: format.includes('png'),
+          attribution: `WMS: ${url}`
+        });
+        
+        // Agregar al mapa y al control de capas
+        wmsLayer.addTo(map);
+        overlays[name] = wmsLayer;
+        
+        // Crear elemento en la lista de capas WMS
+        const id = 'wms-' + Date.now();
+        const layerItem = document.createElement('div');
+        layerItem.className = 'wms-layer-item';
+        layerItem.innerHTML = `
+          <input type="checkbox" id="${id}" checked />
+          <label for="${id}">${name}</label>
+        `;
+        
+        // Agregar control de visibilidad
+        layerItem.querySelector('input').addEventListener('change', (e) => {
+          if (e.target.checked) {
+            wmsLayer.addTo(map);
+          } else {
+            map.removeLayer(wmsLayer);
+          }
+        });
+        
+        wmsLayersList.appendChild(layerItem);
+        
+        // Limpiar formulario
+        $('wmsUrl').value = '';
+        $('wmsLayers').value = '';
+        $('wmsName').value = '';
+        
+      } catch (error) {
+        alert('Error al cargar la capa WMS: ' + error.message);
+        console.error(error);
+      }
+    });
+
+    // Inicializa contadores
+    updateCount();
+  </script>
+</body>
+</html>
