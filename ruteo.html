@@ -299,11 +299,11 @@
     });
     
     // Capa WMS de Cobertura de Suelo de la NASA (MODIS Land Cover)
-    const wmsLandCover = L.tileLayer.wms('https://neo.sci.gsfc.nasa.gov/wms/wms', {
-      layers: 'MOD12C1_T1_Land_Cover_Type_1',
+    const wmsLandCover = L.tileLayer.wms('https://services.terrascope.be/wms/v2', {
+      layers: 'WORLDCOVER_2021_MAP',
       format: 'image/png',
       transparent: true,
-      attribution: '© <a href="https://neo.sci.gsfc.nasa.gov/">NASA NEO</a>',
+      attribution: '© <a href="#">COBUSO</a>',
       opacity: 0.7
     });
     
@@ -318,7 +318,7 @@
       'OpenTopoMap (WMS)': wmsTopo,
       'NASA Blue Marble (WMS)': wmsNasa,
       'SERVIR Amazonía (WMS)': wmsServir,
-      'NASA Cobertura de Suelo (WMS)': wmsLandCover
+      'Cobertura de Suelo (WMS)': wmsLandCover
     };
     
     L.control.layers(baseLayers, overlays, { collapsed:true, position:'topleft' }).addTo(map);

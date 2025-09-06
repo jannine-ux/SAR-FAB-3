@@ -1,0 +1,1665 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Visor Servicio Voluntario de Búsqueda y Rescate</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
+    </style>
+    <style type="text/css" media="print">
+        @media print {
+            #navbar {display:none;}
+            #divMapasBase {display:none;}
+            #divCoberturas {display: none;}
+            #divInformacion {display: none;}
+        }
+    </style>
+
+    <link rel="icon" href="images/logoemi.jpg">
+    <link rel="stylesheet" href="https://observatorio.alt-perubolivia.org/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://observatorio.alt-perubolivia.org/assets/css/leaflet.css">
+    <link rel="stylesheet" href="https://observatorio.alt-perubolivia.org/assets/css/aos.css">
+    <link rel="stylesheet" href="https://observatorio.alt-perubolivia.org/assets/css/altstyle.css">
+    <script src="data/AEROPUERTOSJURISDICCION_1.js"></script>
+    <script src="data/CENTROSDESALUDJURISDICCION_2.js"></script>
+        <script src="data/CENTROSEDUCATIVOSJURISDICCION_3.js"></script>
+        <script src="data/COMUNIDADESJURISDICCION_4.js"></script>
+        <script src="data/LINEADEMEDIATENSION_5.js"></script>
+        <script src="data/LINEADEALTATENSIONJURISDICCION_6.js"></script>
+        <script src="data/MUNICIPIOSJURISDICCION_7.js"></script>
+        <script src="data/PUERTOSJURISDICCION_8.js"></script>
+        <script src="data/VIASSECUNDARIASJURISDICCION_9.js"></script>
+        <script src="data/REDVIALFUNDAMENTALJURISDICCION_10.js"></script>
+        <script src="data/SARFABILLIMANIJURISDICCION_11.js"></script>
+        <script src="data/RIOSSECUNDARIOSJURISDICCION_12.js"></script>
+        <script src="data/RIOSPRINCIPALES_13.js"></script>
+        <script src="data/SARFABEQUIPOS_14.js"></script>
+        <script src="data/SARFABPERSONALMILITAR_15.js"></script>
+        <script src="data/SARFABPERSONALRESCATISTAS_16.js"></script>
+        <script src="data/ISOTERMASJURISDICCION_17.js"></script>
+        <script src="data/ISOYETASJURISDICCION_18.js"></script>
+        <script src="data/372.js"></script>
+        <script src="data/378.js"></script>
+        
+</head>
+<body>
+
+    <div class="container-fluid vh-100 px-0">
+
+        <!-- NavBar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top alt-bgBlanco" id="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand alt-textoAzul fw-bold" href="#">
+                    <img src="images/logo_emi.jpg" alt="Logo" width="65" height="34" class="d-inline-block align-text-top">
+                    SAR-FAB
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="btn alt-btnBlanco alt-textoAzul d-flex align-items-center border-0 ml-1" id="btnCoberturas" href="#" style="font-size: 0.9rem;">
+                                <img src="images/stack-azul.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                                Coberturas
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="btn alt-btnBlanco alt-textoAzul d-flex align-items-center border-0 ml-1" id="btnImprimir" href="#" style="font-size: 0.9rem;">
+                                <img src="images/printer-azul.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                                Imprimir
+                            </a>
+                        </li>
+                    </ul>
+                    <form class="d-flex navbar-nav" role="search">
+                        <li class="nav-item">
+                            
+                            <a class="btn alt-btnBlanco alt-textoAzul d-flex align-items-center border-0 ml-1" id="btnMapasBase" href="#" style="font-size: 0.9rem;">
+                                <img src="images/map-azul.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                                Mapas
+                            </a>
+                        </li>
+                        
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- NavBar -->
+
+        <!-- SideBar Mapas Base -->
+        <div class="alt-bgTransparenteBlurLight alt-sideBarMapas p-1 shadow-lg" id="divMapasBase">
+            <div class="row mx-auto p-1">
+                <div class="col-12 alt-bgAzul alt-textoBlanco py-2 d-flex align-items-center justify-content-between" style="border-radius: 8px;">
+                    <div>
+                        MAPAS
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img id="imgCloseMapasBase" class="alt-btnRojo" style="height: 20px; width: 20px;"
+                         src="images/close.svg" alt="" width="16">
+                    </div>
+                </div>
+            </div>
+            <div class="row mx-auto p-1" style="overflow: auto; height: calc(100vh - 150px)">
+                <div class="col-12 mx-auto alt-bgTransparente alt-textoNegro" style="border-radius: 8px;">
+                    <div class="row mx-auto gy-1 w-100 py-1">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center" style="position: relative;">
+                                <img id="gm1" class="rounded alt-imgBtn" src="https://observatorio.alt-perubolivia.org/assets/iconos/iconos_mapas/gis1.png" alt="mapagoogle" width="110" height="110">
+                                <div class="row" style="position: absolute; top:0px; left:0px">
+                                    <label class="fw-bold alt-textoBlanco" style="font-size: 0.8rem;" for="gm1">
+                                        Google
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center" style="position: relative;">
+                                <img id="osm1" class="rounded alt-imgBtn" src="https://observatorio.alt-perubolivia.org/assets/iconos/iconos_mapas/gis2.png" alt="mapaosm" width="110" height="110">
+                                <div class="row" style="position: absolute; top:0px; left:0px">
+                                    <label class="fw-bold alt-textoNegro" style="font-size: 0.8rem;" for="osm1">
+                                        Open Street Map
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center" style="position: relative;">
+                                <img id="esri3" class="rounded alt-imgBtn" src="https://observatorio.alt-perubolivia.org/assets/iconos/iconos_mapas/gis12.png" alt="mapaesri" width="110" height="110">
+                                <div class="row" style="position: absolute; top:0px; left:0px">
+                                    <label class="fw-bold alt-textoBlanco" style="font-size: 0.8rem;" for="esri3">
+                                        Esri World
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center" style="position: relative;">
+                                <img id="otm1" class="rounded alt-imgBtn" src="https://observatorio.alt-perubolivia.org/assets/iconos/iconos_mapas/gis14.png" alt="mapaopentopo" width="110" height="110">
+                                <div class="row" style="position: absolute; top:0px; left:0px">
+                                    <label class="fw-bold alt-textoBlanco" style="font-size: 0.8rem;" for="otm1">
+                                        Open Topo Map
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center" style="position: relative;">
+                                <img id="cobuso" class="rounded alt-imgBtn" src="images/gis15.png" alt="mapaopentopo" width="110" height="110">
+                                <div class="row" style="position: absolute; top:0px; left:0px">
+                                    <label class="fw-bold alt-textoBlanco" style="font-size: 0.8rem;" for="cobuso">
+                                        Cobertura Uso de Suelo
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SideBar Mapas Base -->
+
+        <!-- SideBar Izquierda Coberturas -->
+        <div class="alt-bgTransparenteBlurLight alt-sideBarLeft p-1 shadow-lg" id="divCoberturas" style="z-index: 1001;">
+            <div class="row mx-auto p-1">
+                <div class="col-12 alt-bgAzul alt-textoBlanco py-2 d-flex align-items-center justify-content-between" style="border-radius: 8px;">
+                    <div>
+                        COBERTURAS
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img id="imgCloseCoberturas" class="alt-btnRojo" style="height: 20px; width: 20px;" 
+                        src="https://observatorio.alt-perubolivia.org/assets/iconos/close.svg" alt="" width="16">
+                    </div>
+                </div>
+            </div>
+            <div class="row mx-auto p-1" style="overflow-y: auto; height: calc(100vh - 150px)">
+                <div class="col-12 mx-auto px-1 alt-textoNegro" style="border-radius: 8px;">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingAgricultura">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAgricultura" aria-expanded="false" aria-controls="collapseAgricultura">
+                                    Agricultura
+                                </button>
+                            </h2>
+                            <div id="collapseAgricultura" class="accordion-collapse collapse" aria-labelledby="headingAgricultura" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingBiota">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBiota" aria-expanded="false" aria-controls="collapseBiota">
+                                    SAR
+                                </button>
+                            </h2>
+                            <div id="collapseBiota" class="accordion-collapse collapse" aria-labelledby="headingBiota" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="222" id="222" name="222">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="222">
+                                                    Áreas de Derecho Acuícola en el Lago Titicaca 
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="219" id="219" name="219">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="219">
+                                                    Áreas de Pesca del Lago Titicaca (2022)
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="205" id="205" name="205">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="205">
+                                                    Biodiversidad 
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="217" id="217" name="217">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="217">
+                                                    Comunidades Pesqueras del Lago Titicaca
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="207" id="207" name="207">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="207">
+                                                    Totorales del Lago Titicaca
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="209" id="209" name="209">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="209">
+                                                    Totorales de la Cuenca del Lago Poopó (1979)
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="210" id="210" name="210">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="210">
+                                                    Totorales de la Cuenca del Lago Poopó (1989)
+                                                </label>
+                                            </div>
+                                           
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="211" id="211" name="211">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="211">
+                                                    Totorales de la Cuenca del Lago Poopó (2000)
+                                                </label>
+                                            </div>
+                                           
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="212" id="212" name="212">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="212">
+                                                    Totorales de la Cuenca del Lago Poopó (2002)
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="213" id="213" name="213">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="213">
+                                                    Totorales de la Cuenca del Lago Poopó (2005)
+                                                </label>
+                                            </div>
+                                           
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="214" id="214" name="214">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="214">
+                                                    Totorales de la Cuenca del Lago Poopó (2010)
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="215" id="215" name="215">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="215">
+                                                    Totorales de la Cuenca del Lago Poopó (2015)
+                                                </label>
+                                            </div>
+                                           
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="218" id="218" name="218">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="218">
+                                                    Totorales de la Cuenca del Lago Poopó (2020)
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingLimitesA">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLimitesA" aria-expanded="false" aria-controls="collapseLimitesA">
+                                    Limites
+                                </button>
+                            </h2>
+                            <div id="collapseLimitesA" class="accordion-collapse collapse" aria-labelledby="headingLimitesA" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="372" id="372" name="372">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="372">
+                                                    Límite Departamentos de Bolivia 
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                              
+                                              
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="378" id="378" name="378">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="378">
+                                                    Límite Municipios de Bolivia 
+                                                </label>
+                                            </div>
+                                           
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="374" id="374" name="374">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="374">
+                                                    Límite Provincias de Bolivia 
+                                                </label>
+                                            </div>
+                                           
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="375" id="375" name="375">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="375">
+                                                    Límite Provincias de Perú 
+                                                </label>
+                                            </div>
+                                           
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="373" id="373" name="373">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="373">
+                                                    Límite Regiones de Perú 
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingAtClMe">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAtClMe" aria-expanded="false" aria-controls="collapseAtClMe">
+                                    Atmósfera, Climatología, Meter..
+                                </button>
+                            </h2>
+                            <div id="collapseAtClMe" class="accordion-collapse collapse" aria-labelledby="headingAtClMe" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="164" id="164" name="164">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="164">
+                                                    Riesgo de Heladas 
+                                                </label>
+                                            </div>
+                                           
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="370" id="370" name="370">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="370">
+                                                    Estaciones Hidrológicas Anexadas al OBP
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="166" id="166" name="166">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="166">
+                                                    Zonas libres de heladas y sequías 
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="162" id="162" name="162">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="162">
+                                                    Isoyetas de Precipitación en Año Húmedo 
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="161" id="161" name="161">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="161">
+                                                    Isoyetas de Precipitación en Año Seco 
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="160" id="160" name="160">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="160">
+                                                    Precipitación Media Anual 
+                                                </label>
+                                            </div>
+                                           
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="163" id="163" name="163">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="163">
+                                                    Temperatura Media Anual 
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="159" id="159" name="159">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="159">
+                                                    Clasificación Climática (Thornthwaite) 
+                                                </label>
+                                            </div>
+                                            
+                                        </div>
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingElevacion">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseElevacion" aria-expanded="false" aria-controls="collapseElevacion">
+                                    Elevación
+                                </button>
+                            </h2>
+                            <div id="collapseElevacion" class="accordion-collapse collapse" aria-labelledby="headingElevacion" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingMedioA">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMedioA" aria-expanded="false" aria-controls="collapseMedioA">
+                                    Medio Ambiente
+                                </button>
+                            </h2>
+                            <div id="collapseMedioA" class="accordion-collapse collapse" aria-labelledby="headingMedioA" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingInformacionG">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInformacionG" aria-expanded="false" aria-controls="collapseInformacionG">
+                                    Información Geocientífica
+                                </button>
+                            </h2>
+                            <div id="collapseInformacionG" class="accordion-collapse collapse" aria-labelledby="headingInformacionG" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSalud">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSalud" aria-expanded="false" aria-controls="collapseSalud">
+                                    Salud
+                                </button>
+                            </h2>
+                            <div id="collapseSalud" class="accordion-collapse collapse" aria-labelledby="headingSalud" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingCoTiMaBaIm">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCoTiMaBaIm" aria-expanded="false" aria-controls="collapseCoTiMaBaIm">
+                                    Cobertura de la Tierra con Mapas..
+                                </button>
+                            </h2>
+                            <div id="collapseCoTiMaBaIm" class="accordion-collapse collapse" aria-labelledby="headingCoTiMaBaIm" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingAguasI">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAguasI" aria-expanded="false" aria-controls="collapseAguasI">
+                                    Aguas Interiores
+                                </button>
+                            </h2>
+                            <div id="collapseAguasI" class="accordion-collapse collapse" aria-labelledby="headingAguasI" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="381" id="381" name="381">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="381">
+                                                    Cuencas de Planificación 
+                                                </label>
+                                            </div>
+                                            <div class="col-2 p-0 d-flex align-items-center justify-content-center">
+                                                <div class="dropdown">
+                                                    <button class="btn border-0 w-100 alt-btnBlanco d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <img src="https://observatorio.alt-perubolivia.org/assets/iconos/download-azul.svg" alt="GeoJson" width="16">
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><button class="dropdown-item alt-btnMetaDato alt-dropdown-item" style="font-size: 0.9rem;" value="381"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/metadatos-dark.svg" alt="Metadatos" class="mr-2" width="20">Metadatos</button></li>
+                                                        
+                                                        
+                                                        <li><a class="dropdown-item alt-dropdown-item" style="font-size: 0.9rem;" href="https://observatorio.alt-perubolivia.org/visorcoberturas/shapefile/AGU_CUE_PLA"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/kml-dark.svg" alt="Kml" class="mr-2" width="20">Shapefile</a></li>
+                                                    </ul>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="380" id="380" name="380">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="380">
+                                                    Límite del Sistema TDPS
+                                                </label>
+                                            </div>
+                                            <div class="col-2 p-0 d-flex align-items-center justify-content-center">
+                                                <div class="dropdown">
+                                                    <button class="btn border-0 w-100 alt-btnBlanco d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <img src="https://observatorio.alt-perubolivia.org/assets/iconos/download-azul.svg" alt="GeoJson" width="16">
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><button class="dropdown-item alt-btnMetaDato alt-dropdown-item" style="font-size: 0.9rem;" value="380"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/metadatos-dark.svg" alt="Metadatos" class="mr-2" width="20">Metadatos</button></li>
+                                                        
+                                                        
+                                                        <li><a class="dropdown-item alt-dropdown-item" style="font-size: 0.9rem;" href="https://observatorio.alt-perubolivia.org/visorcoberturas/shapefile/AGU_LIM_TDPS"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/kml-dark.svg" alt="Kml" class="mr-2" width="20">Shapefile</a></li>
+                                                    </ul>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="384" id="384" name="384">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="384">
+                                                    Unidades Hidrográficas Nivel 3 
+                                                </label>
+                                            </div>
+                                            <div class="col-2 p-0 d-flex align-items-center justify-content-center">
+                                                <div class="dropdown">
+                                                    <button class="btn border-0 w-100 alt-btnBlanco d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <img src="https://observatorio.alt-perubolivia.org/assets/iconos/download-azul.svg" alt="GeoJson" width="16">
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><button class="dropdown-item alt-btnMetaDato alt-dropdown-item" style="font-size: 0.9rem;" value="384"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/metadatos-dark.svg" alt="Metadatos" class="mr-2" width="20">Metadatos</button></li>
+                                                        
+                                                        
+                                                        <li><a class="dropdown-item alt-dropdown-item" style="font-size: 0.9rem;" href="https://observatorio.alt-perubolivia.org/visorcoberturas/shapefile/AGU_UH_NIV_3"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/kml-dark.svg" alt="Kml" class="mr-2" width="20">Shapefile</a></li>
+                                                    </ul>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="386" id="386" name="386">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="386">
+                                                    Unidades Hidrográficas Nivel 4 
+                                                </label>
+                                            </div>
+                                            <div class="col-2 p-0 d-flex align-items-center justify-content-center">
+                                                <div class="dropdown">
+                                                    <button class="btn border-0 w-100 alt-btnBlanco d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <img src="https://observatorio.alt-perubolivia.org/assets/iconos/download-azul.svg" alt="GeoJson" width="16">
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><button class="dropdown-item alt-btnMetaDato alt-dropdown-item" style="font-size: 0.9rem;" value="386"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/metadatos-dark.svg" alt="Metadatos" class="mr-2" width="20">Metadatos</button></li>
+                                                        
+                                                        
+                                                        <li><a class="dropdown-item alt-dropdown-item" style="font-size: 0.9rem;" href="https://observatorio.alt-perubolivia.org/visorcoberturas/shapefile/AGU_UH_NIV_4"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/kml-dark.svg" alt="Kml" class="mr-2" width="20">Shapefile</a></li>
+                                                    </ul>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="390" id="390" name="390">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="390">
+                                                    Unidades Hidrográficas Nivel 5 
+                                                </label>
+                                            </div>
+                                            <div class="col-2 p-0 d-flex align-items-center justify-content-center">
+                                                <div class="dropdown">
+                                                    <button class="btn border-0 w-100 alt-btnBlanco d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <img src="https://observatorio.alt-perubolivia.org/assets/iconos/download-azul.svg" alt="GeoJson" width="16">
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><button class="dropdown-item alt-btnMetaDato alt-dropdown-item" style="font-size: 0.9rem;" value="390"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/metadatos-dark.svg" alt="Metadatos" class="mr-2" width="20">Metadatos</button></li>
+                                                        
+                                                        
+                                                        <li><a class="dropdown-item alt-dropdown-item" style="font-size: 0.9rem;" href="https://observatorio.alt-perubolivia.org/visorcoberturas/shapefile/AGU_UH_NIV_51"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/kml-dark.svg" alt="Kml" class="mr-2" width="20">Shapefile</a></li>
+                                                    </ul>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="382" id="382" name="382">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="382">
+                                                    Zonas Hidrológicas 
+                                                </label>
+                                            </div>
+                                            <div class="col-2 p-0 d-flex align-items-center justify-content-center">
+                                                <div class="dropdown">
+                                                    <button class="btn border-0 w-100 alt-btnBlanco d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <img src="https://observatorio.alt-perubolivia.org/assets/iconos/download-azul.svg" alt="GeoJson" width="16">
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><button class="dropdown-item alt-btnMetaDato alt-dropdown-item" style="font-size: 0.9rem;" value="382"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/metadatos-dark.svg" alt="Metadatos" class="mr-2" width="20">Metadatos</button></li>
+                                                        
+                                                        
+                                                        <li><a class="dropdown-item alt-dropdown-item" style="font-size: 0.9rem;" href="https://observatorio.alt-perubolivia.org/visorcoberturas/shapefile/AGU_ZON_HID"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/kml-dark.svg" alt="Kml" class="mr-2" width="20">Shapefile</a></li>
+                                                    </ul>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSociedad">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSociedad" aria-expanded="false" aria-controls="collapseSociedad">
+                                    Sociedad
+                                </button>
+                            </h2>
+                            <div id="collapseSociedad" class="accordion-collapse collapse" aria-labelledby="headingSociedad" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="189" id="189" name="189">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="189">
+                                                    Ciudades del Sistema TDPS
+                                                </label>
+                                            </div>
+                                            <div class="col-2 p-0 d-flex align-items-center justify-content-center">
+                                                <div class="dropdown">
+                                                    <button class="btn border-0 w-100 alt-btnBlanco d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <img src="https://observatorio.alt-perubolivia.org/assets/iconos/download-azul.svg" alt="GeoJson" width="16">
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><button class="dropdown-item alt-btnMetaDato alt-dropdown-item" style="font-size: 0.9rem;" value="189"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/metadatos-dark.svg" alt="Metadatos" class="mr-2" width="20">Metadatos</button></li>
+                                                        
+                                                        
+                                                        <li><a class="dropdown-item alt-dropdown-item" style="font-size: 0.9rem;" href="https://observatorio.alt-perubolivia.org/visorcoberturas/shapefile/SOC_CIU_TDPS"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/kml-dark.svg" alt="Kml" class="mr-2" width="20">Shapefile</a></li>
+                                                    </ul>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
+                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
+                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="173" id="173" name="173">
+                                            </div>
+                                            <div class="col-9 p-0 d-flex align-items-center">
+                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="173">
+                                                    Poblaciones Circunlacustres
+                                                </label>
+                                            </div>
+                                            <div class="col-2 p-0 d-flex align-items-center justify-content-center">
+                                                <div class="dropdown">
+                                                    <button class="btn border-0 w-100 alt-btnBlanco d-flex justify-content-center align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <img src="https://observatorio.alt-perubolivia.org/assets/iconos/download-azul.svg" alt="GeoJson" width="16">
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><button class="dropdown-item alt-btnMetaDato alt-dropdown-item" style="font-size: 0.9rem;" value="173"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/metadatos-dark.svg" alt="Metadatos" class="mr-2" width="20">Metadatos</button></li>
+                                                        
+                                                        
+                                                        <li><a class="dropdown-item alt-dropdown-item" style="font-size: 0.9rem;" href="https://observatorio.alt-perubolivia.org/visorcoberturas/shapefile/SOC_POB_CIRLT"><img src="https://observatorio.alt-perubolivia.org/assets/iconos/kml-dark.svg" alt="Kml" class="mr-2" width="20">Shapefile</a></li>
+                                                    </ul>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTransporte">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTransporte" aria-expanded="false" aria-controls="collapseTransporte">
+                                    Transporte
+                                </button>
+                            </h2>
+                            <div id="collapseTransporte" class="accordion-collapse collapse" aria-labelledby="headingTransporte" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingComunicacionS">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseComunicacionS" aria-expanded="false" aria-controls="collapseComunicacionS">
+                                    Comunicación de Servicios
+                                </button>
+                            </h2>
+                            <div id="collapseComunicacionS" class="accordion-collapse collapse" aria-labelledby="headingComunicacionS" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                    </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingDesastre">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDesastre" aria-expanded="false" aria-controls="collapseDesastre">
+                                    Desastre
+                                </button>
+                            </h2>
+                            <div id="collapseDesastre" class="accordion-collapse collapse" aria-labelledby="headingDesastre" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                                                    </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTusCapas">
+                                <button class="btn alt-btnAccordionAzul w-100 collapsed border-0" style="font-size: 0.9rem;" style="font-size: 0.9rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTusCapas" aria-expanded="false" aria-controls="collapseTusCapas">
+                                    Tus capas
+                                </button>
+                            </h2>
+                            <div id="collapseTusCapas" class="accordion-collapse collapse" aria-labelledby="headingTusCapas" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="mb-3 row">
+                                        
+                                        <button type="button" class="btn alt-btnRojo alt-texto1 border-0" style="font-size: 0.9rem;" id="btnLimpiarCapas">
+                                            <img class="mr-1" src="https://observatorio.alt-perubolivia.org/assets/iconos/delete.svg" alt="">Quitar capas seleccionadas
+                                        </button>
+                                    </div>
+
+                                    <div class="row my-1" style="height: auto;">
+                                        <div class="my-1 col-12 d-flex align-items-center" id="colContainer">
+                                            <div class="row vw-100 my-auto alt-texto1" id="rowContainerCapaExterna">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SideBar Izquierda Coberturas -->
+
+        <!-- SideBar Derecha divInformacion -->
+        <div class="alt-bgTransparenteBlurLight alt-sideBarRight p-1 shadow-lg" style="width: 340px" id="divInformacion">
+            <div class="row mx-auto p-1">
+                <div class="col-12 alt-bgAzul alt-textoBlanco py-2 d-flex align-items-center justify-content-between" style="border-radius: 8px;">
+                    <div>
+                        DATOS COBERTURA
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img id="imgCloseInformacion" class="alt-btnRojo" style="height: 20px; width: 20px;" src="https://observatorio.alt-perubolivia.org/assets/iconos/close.svg" alt="" width="16">
+                    </div>
+                </div>
+            </div>
+            <div class="row mx-auto p-1" style="overflow-y: auto; height: calc(100vh - 150px)">
+                <div class="col-12 mx-auto alt-textoNegro" style="border-radius: 8px;">
+                    <div class="row w-100">
+                        <ul class="nav nav-pills mb-1" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="mx-1 btn alt-btnBlanco alt-textoAzul border-0 active" id="leyenda-tab" data-bs-toggle="pill" data-bs-target="#leyenda" type="button" role="tab" aria-controls="estilos" aria-selected="false" style="font-size: 0.9rem;">
+                                    Leyenda
+                                </button>
+                            </li>
+                            
+                           
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="leyenda" role="tabpanel" aria-labelledby="leyenda-tab" tabindex="0">
+                                <ul class="list-group" id="listaLeyendas">
+                                </ul>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SideBar Derecha divInformacion -->
+
+        <!-- Div Mapa -->
+        <div class="vw-100 vh-100" id="map">
+        </div>
+        <!-- Div Mapa -->
+
+        <!-- Modal Acerca De -->
+        <div class="modal fade" id="modalAcercaDe" tabindex="-1" aria-labelledby="modalAcercaDeLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content alt-bgTransparenteBlurLight border-0 shadow-lg">
+                <div class="modal-header">
+                    <img class="mr-2" src="images/logo_emi.jpg" alt="logo_alt" width="100">
+                    <h6 class="modal-title alt-textoAzul alt-texto1" id="modalAcercaDeLabel">Acerca de Coberturas</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row gy-5 d-flex align-items-center">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <img class="rounded-5 w-100 shadow" style="border: 10px solid #ffffff;" 
+                            src="images/coberturas.png" alt="logo_alt">
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="row gy-2">
+                                
+                                <div class="col-12 text-center d-flex align-items-center">
+                                    <p class="alt-textoAzul alt-texto1" style="text-align: justify;">
+                                        
+                                        Conoce más del Tiene por misión organizar y capacitar al personal voluntario en situaciones de desastres naturales o antrópicos, búsqueda, salvamento y rescate. Las coberturas que representan límites geográficos deben considerarse con carácter referencial, para la obtención de información oficial al respecto deberá remitirse a la entidad competente en cada país.
+                                    </p>
+                                </div>
+                                
+                                <div class="col-12 py-1 h-100 text-end">
+                                    <button type="button" class="btn alt-btnRojo border-0 alt-texto1" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+        <!-- Modal Acerca De -->
+
+        <!-- Modal Mensaje de carga-->
+        
+        <!-- Modal Mensaje de carga-->
+
+        <div id="notif-tooltip" class="fw-semibold">
+            
+        </div>
+    </div>
+
+	<script src="https://observatorio.alt-perubolivia.org/assets/js/jquery-3.6.1.min.js"></script>
+    <script src="https://observatorio.alt-perubolivia.org/assets/js/jquery-ui.min.js"></script>
+    <script src="https://observatorio.alt-perubolivia.org/assets/js/leaflet.js"></script>
+    <script src="https://observatorio.alt-perubolivia.org/assets/js/popper.min.js"></script>
+    <script src="https://observatorio.alt-perubolivia.org/assets/js/bootstrap.min.js"></script>
+    
+    <script src="https://observatorio.alt-perubolivia.org/assets/js/apexcharts.js"></script>
+    <script src="https://observatorio.alt-perubolivia.org/assets/js/togeojson.umd.js"></script>
+    <script src="https://observatorio.alt-perubolivia.org/assets/js/leaflet.filelayer.js"></script>
+    
+    <script type="text/javascript">
+
+    //DECLARACION DE VARIABLES
+
+    //VARIABLE URL NOMBRE DE DOMINIO
+    const url = '';
+    //VARIABLES GLOBALES PARA ALMACENAR VARIABLES GEOJSON AL CARGAR ASINCRONICAMENTE CAPAS GEOJSON
+    // var geojson;         //Variable donde se asigna las coberturas hidricas
+    var cobertura;       //Variable donde se asigna las coberturas base
+    var codigopunto;     //Variable donde se asigna el codigo de un punto
+    var capas;           //Variable de tipo layerGroup donde se asignan las capas hidricas
+
+    var capasbase = {};   //Variable tipo array asociativo donde obtenemos el geojson en un key generado //{"capa1":capa1, "capa2": capa2, "capa3": capa3};
+    var varnomb = "";     //Variable donde se genera el key para capasbase
+    var varintb = 0;      //Variable donde obtenemos el id de la capa
+    var varstrb = "";     //Variable donde obtenemos el key convertido a cadena con el siguiente contenido "capabase57"
+
+    const capasmb = [];   //Variable de tipo vector donde se almacenan los mapas base que se cargan en el geovisor
+    var metadatos = [];   //Variable donde se asignan datos generales de las coberturas
+
+    const myModalAcercaDe = new bootstrap.Modal('#modalAcercaDe', { backdrop: false }); //Variable de tipo Modal Bootstrap 5.2
+    // const myModalMensaje = new bootstrap.Modal('#modalMensaje');   //Variable de tipo Modal Bootstrap 5.2
+
+    console.log( "loading!" );
+    // $(".loading-spinner").show();
+    $( document ).ready(function() {
+
+        //INICIALIZACION LEAFLET PARA LA VISUALIZACION DE MAPAS
+        const map = L.map('map', {attributionControl: false, zoomControl: false}).setView([-15.2, -68.1500015], 6); //L.map('map').setView([37.8, -96], 4);
+        const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 18,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                    // tileSize: 100
+        }).addTo(map);
+        capasmb.push(tiles);
+        capas = L.layerGroup().addTo(map);
+        L.Marker.prototype.options.icon = L.icon({
+            iconSize: [24, 24],
+            // iconUrl: "../public/assets/iconos/geo-alt-upload.svg",
+            iconUrl: "./images/question-celeste.svg",
+        });
+
+        //AGREGAR CONTROL ESCALA AL MAPA
+        L.control.scale({
+            metric: true,
+            imperial: true,
+            maxWidth: 100,
+            position: 'bottomleft'
+        }).addTo(map);
+
+        //AGREGAR CONTROL ZOOM AL MAPA
+        L.control.zoom({
+            position: 'bottomleft'
+        }).addTo(map);
+
+        //FUNCION QUE ABRE EL SIDEBAR COBERTURAS
+        var swCoberturas = false;
+        $("#divCoberturas").show();
+        $("#btnCoberturas").on("click", function(){
+            if (swCoberturas) {
+                $("#divCoberturas").show(200);
+                swCoberturas = false;
+            }else{
+                $("#divCoberturas").hide(200);
+                swCoberturas = true;
+            }
+        });
+        $("#imgCloseCoberturas").on("click", function(){
+            if (swCoberturas) {
+                $("#divCoberturas").show(200);
+                swCoberturas = false;
+            }else{
+                $("#divCoberturas").hide(200);
+                swCoberturas = true;
+            }
+        });
+
+        //FUNCION QUE IMPRIME MAPA EN PDF
+        $("#btnImprimir").on("click", function(){
+            window.print();
+        });
+
+        //VISIBILIZAR SIDEBAR INFORMACION
+        var swInformacion = true;
+        $("#divInformacion").hide();
+        $("#btnInformacion").on("click", function (e) {
+            // var ide = document.getElementById('cbLeyenda').checked;
+            if (swInformacion) {
+                $("#divInformacion").show(200);
+                swInformacion = false;
+            }else{
+                $("#divInformacion").hide(200);
+                swInformacion = true;
+            }
+        });
+        $("#imgCloseInformacion").on("click", function(){
+            if (swInformacion) {
+                $("#divInformacion").show(200);
+                // $('#cbLeyenda').prop('checked', true);
+                swInformacion = false;
+            }else{
+                $("#divInformacion").hide(200);
+                // $('#cbLeyenda').prop('checked', false);
+                swInformacion = true;
+            }
+        });
+
+        map.on('zoomend', function() {
+            $("#txtZoomLevel").val(map.getZoom());
+        });
+        $("#txtZoomLevel").on("input", function (e) {
+            map.setZoom(this.value);
+        });
+        $("#txtZoomLevel").val(map.getZoom());
+
+        //VISIBILIZAR MODAL ACERCA DE
+        myModalAcercaDe.show();
+
+        //VISIBILIZAR SIDEBAR MAPAS BASE
+        var swMapasBase = true;
+        $("#divMapasBase").hide();
+        $("#btnMapasBase").on("click", function (e) {
+            // var ide = document.getElementById('cbLeyenda').checked;
+            if (swMapasBase) {
+                $("#divMapasBase").show(200);
+                swMapasBase = false;
+            }else{
+                $("#divMapasBase").hide(200);
+                swMapasBase = true;
+            }
+        });
+        $("#imgCloseMapasBase").on("click", function(){
+            if (swMapasBase) {
+                $("#divMapasBase").show(200);
+                swMapasBase = false;
+            }else{
+                $("#divMapasBase").hide(200);
+                swMapasBase = true;
+            }
+        });
+
+        //AGREGAR CAPAS EXTERNAS CON LEAFLET FILELAYER
+        var style = {
+            color: '#002b5c',
+            opacity: 1.0,
+            fillOpacity: 1.0,
+            weight: 2,
+            clickable: false
+        };
+        var style2 = {
+            color: '#de0000',
+            opacity: 1.0,
+            fillOpacity: 0.5,
+            weight: 2,
+            clickable: false
+        };
+        // var control = L.Control.fileLayerLoad({ fileSizeLimit: 9999 })
+        L.Control.FileLayerLoad.LABEL = '<img class="icon" src="https://observatorio.alt-perubolivia.org/assets/iconos/upload-azul.svg" alt="file icon"/>';
+        var control = L.Control.fileLayerLoad({
+            layer: L.geoJson,
+            layerOptions: {
+                style: style,
+                pointToLayer: function (data, latlng) {
+                    return L.circleMarker(
+                        latlng,
+                        {
+                            style: style2,
+                            radius: 5,
+                        }
+                    );
+                }
+            },
+            addToMap: false,
+            fileSizeLimit: 200000,
+            position: 'bottomleft',
+            formats: [
+                '.geojson',
+                '.gpx',
+                '.kml'
+            ]
+        }).addTo(map);
+
+        var baseMaps = {
+            // "OSM": osm,
+        };
+        var overlayMaps = {
+        };
+        var varnome = "";     //Variable donde se genera el key para capa externa
+        var varinte = 0;      //Variable donde obtenemos el id de la capa externa
+        var varstre = "";
+        var capasexter = {};
+        // var layerswitcher= L.control.layers(baseMaps, overlayMaps, {collapsed:false, position: 'bottomleft'}).addTo(map);
+        control.loader.on('data:loaded', function (event) {
+            // alert('cargando');
+            // console.log(event.filename);
+            varinte = varinte + 1;
+            varstre = varinte.toString();
+            varnome = event.filename.split(".")[0]+varstre;
+            capasexter[varnome] = event.layer;
+            capas.addLayer(capasexter[varnome]);
+
+            var text = "<tr class='alt-btnBlanco py-1' style='vertical-align: middle;'>"
+                        +"<td style='vertical-align: middle; padding-top: 5px; padding=bottom: 5px;'><input type='checkbox' class='form-check-input' id='"+varnome+"' checked/></td>"
+                        +"<td style='vertical-align: middle; padding-top: 5px; padding=bottom: 5px;'><label class='form-check-label' for='"+varnome+"'>"+varnome+"</label></td>"
+                        +"</tr>";
+
+            $('#rowContainerCapaExterna').append(text);
+            $("#divCoberturas").show(200);
+            $("#collapseTusCapas").addClass('show');
+            swCoberturas = false;
+        });
+        control.loader.on('data:error', function (error) {
+            alert(error.error.message);
+        });
+        $("#btnLimpiarCapas").on("click", function(){
+            // $("#divLAG_TDPS.geojson").remove();
+            if(!$.trim($('#rowContainerCapaExterna').html()).length){
+                alert ("No hay capas");
+            }else{
+                $('#rowContainerCapaExterna').children('tr').find('input[type=checkbox]:checked').each(function (i, elemento) {
+                    
+                    $(this).closest('tr').remove();
+                    capas.removeLayer(capasexter[elemento.id]);
+                });
+            }
+        });
+
+        //CARGAR MAPA DEL POR DEFECTO
+        //cargarCobertura();
+
+        function cargarCobertura() {
+            geojson = L.geoJson(json_AEROPUERTOSJURISDICCION_1, {
+                    style: estiloCoberturatdps,
+                    onEachFeature: caracteristicaCoberturatdps,
+                });
+             capas.addLayer(geojson);
+             map.fitBounds(geojson.getBounds());
+        }
+        function estiloCoberturatdps(feature) {
+            return {
+                weight: 5,
+                color: '#00ffff', //getColor(feature.properties.ph), //'#d40000',
+                fillColor: '#00ffff', //getColor(feature.properties.ph), //'#d40000' //getColor(feature.properties.density),
+                fillOpacity: 0.0,
+                // opacity: 1,
+                dashArray: '1',
+            };
+        }
+        function caracteristicaCoberturatdps(feature, layer) {
+            layer.on({
+                // mouseover: resaltarCoberturatdps,
+                // mouseout: resetearCoberturatdps,
+                click: clickCoberturatdps
+            });
+        }
+        function resaltarCoberturatdps(e) {
+            const layer = e.target;
+            layer.setStyle({
+                weight: 2,
+                color: '#d40000', //getColor(layer.feature.properties.ph), //'#d40000',
+                fillOpacity: 0.5,
+                dashArray: '1',
+            });
+            layer.bringToBack();
+        }
+        function resetearCoberturatdps(e) {
+            // cobertura.resetStyle(e.target);
+            geojson.resetStyle(e.terget);
+        }
+        function clickCoberturatdps(e) {
+            const layer = e.target;
+            map.fitBounds(e.target.getBounds());
+        }
+
+        //CARGA DATOS ASINCRONICAMENTE CAPAS DE COBERTURAS BASE
+        var codigoPoligono;
+        const legendList = document.getElementById("listaLeyendas");
+        let selectedLayer = null;
+        const coloresAsignados = {};
+        var labels = [];
+        $(".alt-chboxCoberturaBase").on("click", function (e) {
+            // alert('Cobertura Base '+$(this).val());
+            // alert(this.value);
+            const labelcheckbox = document.querySelector(`label[for="${this.id}"]`);
+
+            varintb = this.value;
+            varstrb = varintb.toString();
+            varnomb = "capabase"+varstrb;
+
+            if (this.checked) {
+                mostrarTooltip("Cargando!")
+
+                const h5 = document.createElement("h5");
+                h5.id = varnomb;
+                // h5.classList.add("alt-textoAzul", "alt-texto2");
+                h5.classList.add("alt-textoAzul");
+                h5.style.fontSize = "0.9rem";
+                h5.style.padding = "12px 0px 5px 0px";
+                h5.style.textAlign = "left";
+                h5.innerHTML = labelcheckbox.textContent; //`<span style="background:${color}; padding:3px 8px; color:white; height:25px; width: 25px">${name}</span>`;
+                legendList.appendChild(h5);
+                if (this.value=="372") {
+                            capasbase[varnomb] = L.geoJson(json_372, {
+                                style: feature => {
+                                    const name = feature.properties.NOM;  //fid
+                                    if (!coloresAsignados[name]) {
+                                        coloresAsignados[name] = obtenerColor();
+                                    }
+                                    return {
+                                        color: coloresAsignados[name],
+                                        weight: 2,
+                                        fillOpacity: 0.5
+                                    };
+                                },
+                                onEachFeature: caracteristicaCobertura,
+                                pointToLayer: puntoCapa,
+                            }); 
+
+                            capas.addLayer(capasbase[varnomb]);
+                            map.fitBounds(capasbase[varnomb].getBounds());
+                            ocultarTooltip();
+                }
+                else if (this.value=="378") {
+                            capasbase[varnomb] = L.geoJson(json_378, {
+                                style: feature => {
+                                    const name = feature.properties.NOM;  //fid
+                                    if (!coloresAsignados[name]) {
+                                        coloresAsignados[name] = obtenerColor();
+                                    }
+                                    return {
+                                        color: coloresAsignados[name],
+                                        weight: 2,
+                                        fillOpacity: 0.5
+                                    };
+                                },
+                                onEachFeature: caracteristicaCobertura,
+                                pointToLayer: puntoCapa,
+                            }); 
+
+                            capas.addLayer(capasbase[varnomb]);
+                            map.fitBounds(capasbase[varnomb].getBounds());
+                            ocultarTooltip();
+                } else {
+                    console.log('ninguno');
+                }
+                /*
+                $.get(url+'visorcoberturas/coberturasbase/'+this.value, function(datos){
+                    // console.log(datos[0][0].nombre);
+                    console.log(datos[1]);
+                    metadatos = datos[0];
+                    $("#general").html(datos[2]);
+                    // cobertura = L.geoJson(datos[0], {
+                    capasbase[varnomb] = L.geoJson(datos[1], {
+                        style: feature => {
+                            const name = feature.properties.NOM;  //fid
+                            if (!coloresAsignados[name]) {
+                                coloresAsignados[name] = obtenerColor();
+                            }
+                            return {
+                                color: coloresAsignados[name],
+                                weight: 2,
+                                fillOpacity: 0.5
+                            };
+                        },
+                        onEachFeature: caracteristicaCobertura,
+                        pointToLayer: puntoCapa,
+                    }); 
+
+                    capas.addLayer(capasbase[varnomb]);
+                    map.fitBounds(capasbase[varnomb].getBounds());
+                    ocultarTooltip();
+                });
+                */
+            } else {
+                // alert('Ocultar capa');
+                // capas.removeLayer(cobertura);
+                // map.removeLayer(capas);
+                capas.removeLayer(capasbase[varnomb]);
+                delete capasbase[varnomb];
+                // legendList.innerHTML = "";
+                // labels.length = 0;
+                labels.forEach(label => {
+                    if (map.hasLayer(label)) {
+                        map.removeLayer(label);
+                    }
+                });
+                labels = [];
+                eliminarLiPorId(varnomb);
+            }
+        });
+        function eliminarLiPorId(idObjetivo) {
+            const ul = document.getElementById("listaLeyendas");
+            if (!ul) {
+                console.warn(`No se encontró el <ul> con id "${"listaLeyendas"}"`);
+                return;
+            }
+
+            const elementos = ul.querySelectorAll(`li#${CSS.escape(idObjetivo)}`);
+            elementos.forEach(li => li.remove());
+
+            const elementosh5 = ul.querySelectorAll(`h5#${CSS.escape(idObjetivo)}`);
+            elementosh5.forEach(h5 => h5.remove());
+        }
+        function estiloCobertura(feature, layer){
+            var c = obtenerColor();
+
+            return {
+                weight: 1,
+                color: c, //getColor(feature.properties.ph), //'#d40000',
+                fillColor: c, //getColor(feature.properties.ph), //'#d40000' //getColor(feature.properties.density),
+                fillOpacity: 1,
+                // opacity: 1,
+                dashArray: '1',
+                // radius: 5,
+            };
+        }
+        function obtenerColor() {
+            // var colores = ['#cc3300','#fe3301', '#ff6634', '#ff9900', '#ffcd00', '#ffff00'];
+            var colores = ['#fcc6ff','#b1fdb5', '#fae2b6', '#b8eefa', '#b2c6fb', '#fbb3b4', '#d7fcdb', '#eafcb2', '#c8b3fe', '#fcd4d2', '#d1defe', '#fdc2e0', '#edd7fd', '#c1fdf3', '#f7fcd4', '#b8fbd8', '#fcc8b2', '#cffcc5', '#f5b3fb', '#fce8cf', '#fcf3ba', '#d6f1fc', '#dfc2fc', '#b2ddfd', '#e5fcc6', '#fcb3e1', '#fdd7ec', '#d5cdff', '#b4fcfb', '#c7fcde', '#fadbbc', '#b7fcc6', '#fbfbb3', '#febfc8', '#cffcff', '#ccd4fb'];
+            // var colores = ['#fcc6ff','#b1fdb5', '#fae2b6', '#b8eefa', '#b2c6fb', '#fbb3b4', '#d7fcdb', '#eafcb2', '#c8b3fe', '#fcd4d2', '#d1defe', '#fdc2e0'];
+            // var v = colores[colores.length * Math.random() | 0];
+            // console.log(v);
+            return colores[colores.length * Math.random() | 0];
+        }
+        var label;
+        function caracteristicaCobertura(feature, layer){
+            const name = feature.properties.NOM;  //fid
+            const color = coloresAsignados[name];
+            let coords;
+
+            if (feature.properties && feature.properties.NOM) {   //fid
+                // if (feature.geometry.type === "Point") {
+                //     layer.bindTooltip("Punto " + name, {
+                //         permanent: true,
+                //         direction: "top",
+                //         offset: [0, -10],
+                //         className: ""
+                //     });
+                // }else {
+                //     var center = layer.getBounds().getCenter();
+                //     label = L.marker(center, {
+                //         icon: L.divIcon({
+                //             className: "",
+                //             html: '<div style="margin-top: -28px; padding: 4px 6px; font-size: 12px; font-weight: bold; color: white; text-stroke: 1px black; text-shadow: 1px 1px 2px black, -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black; white-space: nowrap;">Poligono '+feature.properties.fid+'</div>',  //feature.properties.name,
+                //             iconSize: null
+                //         })
+                //     });
+                //     // label.addTo(map);
+                //     capas.addLayer(label);
+                //     // Guardamos referencia para controlarlo después
+                //     labels.push(label);
+                // }
+
+                if (feature.geometry.type === "Polygon" || feature.geometry.type === "MultiPolygon" || feature.geometry.type === "LineString" || feature.geometry.type === "MultiLineString") {
+                    if (typeof layer.getBounds === "function") {
+                        coords = layer.getBounds().getCenter();
+                    }
+                } else if (feature.geometry.type === "Point") {
+                    coords = layer.getLatLng();
+                }
+
+                if (coords) {
+                    const label = L.marker(coords, {
+                        icon: L.divIcon({
+                            className: "",
+                            html: '<div style="margin-top: -28px; padding: 4px 6px; font-size: 12px; font-weight: bold; color: white; text-stroke: 1px black; text-shadow: 1px 1px 2px black, -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black; white-space: nowrap;">' + feature.properties.NOM + '</div>',  //fid   //`<div style="margin-top: -28px; padding: 4px 6px; font-size: 12px; font-weight: bold; color: white; text-shadow: 1px 1px 2px black;">${feature.properties.fid}</div>`,
+                            iconSize: null
+                        })
+                    });
+
+                    capas.addLayer(label);
+                    labels.push(label);
+                }
+            }
+
+            // Etiqueta centrada
+            // layer.bindTooltip(name, {
+            //     permanent: true,
+            //     direction: "center",
+            //     className: "polygon-label"
+            // });
+
+            // Agregar ítem a la leyenda
+            const li = document.createElement("li");
+            li.id = varnomb;
+            li.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center", "list-group-item-action");
+            li.innerHTML = `<span style="background:${color}; border-radius:5px; padding:3px 8px; color:white; height:25px; width: 25px"></span> ` + name; //`<span style="background:${color}; padding:3px 8px; color:white; height:25px; width: 25px">${name}</span>`;
+            legendList.appendChild(li);
+            // Click en la leyenda
+            li.addEventListener("click", () => {
+                if (selectedLayer) {
+                    const prevName = selectedLayer.feature.properties.NOM;  //fid
+                    selectedLayer.setStyle({ color: coloresAsignados[prevName] });
+                }
+                layer.setStyle({ color: "#e21b2380" });
+                selectedLayer = layer;
+                // map.fitBounds(layer.getBounds());
+                if (feature.geometry.type === "Point") {
+                    // Si es punto, centramos y aumentamos el zoom
+                    map.setView(layer.getLatLng(), 14); // Puedes ajustar el nivel de zoom
+                } else {
+                    // Si es polígono, ajustamos la vista a sus límites
+                    map.fitBounds(layer.getBounds());
+                }
+            });
+            // Click en el polígono
+            layer.on("click", () => {
+                if (selectedLayer) {
+                    const prevName = selectedLayer.feature.properties.NOM; //fid
+                    selectedLayer.setStyle({ color: coloresAsignados[prevName] });
+                }
+                layer.setStyle({ color: "#e21b2380" });
+                selectedLayer = layer;
+            });
+
+            layer.on({
+                mouseover: resaltarCobertura,
+                mouseout: resetearCobertura,
+                click: clickCobertura
+            });
+        }
+        function updateLabels() {
+            var zoom = map.getZoom();
+            labels.forEach(label => {
+                if (zoom >= 8) { // Cambia este valor al nivel de zoom deseado
+                    if (!map.hasLayer(label)) map.addLayer(label);
+                } else {
+                    if (map.hasLayer(label)) map.removeLayer(label);
+                }
+            });
+        }
+        map.on("zoomend", updateLabels);
+        updateLabels();
+        function puntoCapa(feature, latlng){
+            var marker = L.circleMarker(latlng, {radius: 5}).addTo(map);
+
+            map.on('zoomend', function() {
+                marker.bindTooltip(feature.properties.PAI + ': ' + feature.properties.PRO, {
+                                                            direction: 'center',
+                                                            permanent: map.getZoom() > 10 ? true : false, //true,
+                                                            sticky: false,
+                                                            offset: [0, -32],
+                                                            opacity: 1,
+                                                            // className: 'leaflet-tooltip-own'
+                                                        });
+            });
+
+            return marker;
+        }
+        function resaltarCobertura(e){
+            const layer = e.target;
+            layer.setStyle({
+                // weight: 2,
+                // color: '#d40000', //getColor(layer.feature.properties.ph), //'#d40000',
+                fillOpacity: 0.5,
+                // dashArray: '1',
+            });
+            // layer.bringToBack();
+        }
+        function resetearCobertura(e){
+            // cobertura.resetStyle(e.target);
+            // capasbase[varnomb].resetStyle(e.terget);
+            const layer = e.target;
+            layer.setStyle({
+                // weight: 2,
+                // color: '#d40000', //getColor(layer.feature.properties.ph), //'#d40000',
+                fillOpacity: 1,
+                // dashArray: '1',
+            });
+        }
+        function clickCobertura(e){
+            const layer = e.target;
+            
+            mostrarModal(layer);
+        }
+        //FUNCION QUE MUESTRA UN MODAL CON LOS DATOS OBETENIDOS DE LA BD
+        function mostrarModal(capa) {
+           
+            $("#divInformacion").show(200);
+            swInformacion = false;
+           
+            $("#tbodyContenido").html(capa.feature.contenido);
+            // console.log(capa.feature.contenido);
+
+            $('#tbodyContenido tr:first').each(function() {
+                // var customerId = $(this).find("td").eq(1).html();
+                // console.log("Dato: "+customerId);
+                codigoPoligono = $(this).find("td").eq(1).html();
+            });
+
+        }
+        $("#btnAplicarEstilos").on("click", function(){
+            capasbase[varnomb].eachLayer(function(layer){
+                if (layer.feature.properties.fid == codigoPoligono) {
+                    layer.setStyle({
+                                    stroke: true,
+                                    color: $("#colorTrazoEstilo").val(), //'#ff0000',
+                                    weight: $("#numberAnchoTrazoEstilo").val(), //5,
+                                    opacity: $("#numberOpacidadTrazoEstilo").val()/100, //0.5,
+                                    fill: true,
+                                    fillColor: $("#colorRellenoEstilo").val(), //'#00ff00',
+                                    fillOpacity: $("#numberOpacidadRellenoEstilo").val()/100 //0.5
+                                });
+                }
+            })
+        });
+
+        //BOTON DE DESCARGA DE METADATOS
+        // $("#btnDescargarMetaDato").on("click", function (e) {
+        $(".alt-btnMetaDato").on("click", function (e) {
+            // alert(this.value);
+            var link = document.createElement("a")
+            link.href = url+'visorcoberturas/metadato/'+this.value;
+            link.target = "_blank"
+            link.click()
+        });
+
+        //BOTON DE DESCARGA DE GEOJSON Y FUNCION QUE PERMITE LA DESCARGA DEL ARCHIVO GEOJSON
+        // $("#btnDescargarGeoJson").on("click", function (e) {
+        $(".alt-btnGeoJson").on("click", function (e) {
+            // alert(this.value);
+            $.get(url+'visorcoberturas/geojson/'+this.value, function(datos){
+                // console.log(datos[0]);
+                // console.log(metadatos[0].id);
+                guardarArchivoDeTextoGeoJson(datos[0], datos[1]+".geojson");
+            });
+        });
+        const guardarArchivoDeTextoGeoJson = (contenido, nombre) => {
+            const a = document.createElement("a");
+            const archivo = new Blob([contenido], { type: 'text/json' });
+            const url = URL.createObjectURL(archivo);
+            a.href = url;
+            a.download = nombre;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        //OBTENER EL VALOR DE IMG PARA MAPAS BASE
+        $(".alt-imgBtn").on("click", function (e) {
+            // Stadia_AlidadeSatellite.removeFrom(map);
+            // alert(e.target.id);
+            capasmb.forEach(function(valor){
+                valor.removeFrom(map);
+            });
+
+            if (e.target.id == "gm1") {
+                const googletiles = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                            maxZoom: 18,
+                            subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+                }).addTo(map);
+                capasmb.push(googletiles);
+            }
+            if (e.target.id == "osm1") {
+                const osmtiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            maxZoom: 18,
+                            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(map);
+                capasmb.push(osmtiles);
+            }
+            if (e.target.id == "stadia6") {
+                var Stadia_StamenTerrain = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_terrain/{z}/{x}/{y}{r}.{ext}', {
+                            minZoom: 0,
+                            maxZoom: 18,
+                            attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                            ext: 'png'
+                }).addTo(map);
+                capasmb.push(Stadia_StamenTerrain);
+            }
+            if (e.target.id == "esri3") {
+                var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+                            maxZoom: 18
+                }).addTo(map);
+                capasmb.push(Esri_WorldImagery);
+            }
+            if (e.target.id == "otm1") {
+                var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                            maxZoom: 18,
+                            attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+                }).addTo(map);
+                capasmb.push(OpenTopoMap);
+            }
+            if (e.target.id == "cobuso") {
+                var CobMap =  L.tileLayer.wms('https://services.terrascope.be/wms/v2', {
+                layers: 'WORLDCOVER_2021_MAP',
+                format: 'image/png',
+                transparent: true,
+                attribution: '© <a href="#">COBUSO</a>',
+                opacity: 0.7
+                }).addTo(map);
+                capasmb.push(CobMap);
+            }
+        });
+
+       
+
+        // MOSTRAR Y OCULTAR CON SHOW Y HIDE
+        ocultarTooltip();
+
+        function mostrarTooltip(mensaje) {
+            // $('#notif-tooltip').html('<strong>' + mensaje + '</strong>').show();
+            $('#notif-tooltip').html(mensaje).show();
+        }
+
+        function ocultarTooltip() {
+            $('#notif-tooltip').hide();
+        }
+
+        console.log( "ready!" );
+        // $(".loading-spinner").hide();
+    });
+
+    </script>
+</body>
+</html>
