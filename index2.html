@@ -25,10 +25,10 @@
     </style>
 
     <link rel="icon" href="images/logoemi.jpg">
-    <link rel="stylesheet" href="https://observatorio.alt-perubolivia.org/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://observatorio.alt-perubolivia.org/assets/css/leaflet.css">
-    <link rel="stylesheet" href="https://observatorio.alt-perubolivia.org/assets/css/aos.css">
-    <link rel="stylesheet" href="https://observatorio.alt-perubolivia.org/assets/css/altstyle.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/leaflet.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/altstyle.css">
     <script src="data/AEROPUERTOSJURISDICCION_1.js"></script>
     <script src="data/CENTROSDESALUDJURISDICCION_2.js"></script>
         <script src="data/CENTROSEDUCATIVOSJURISDICCION_3.js"></script>
@@ -184,7 +184,7 @@
                     </div>
                     <div class="d-flex align-items-center">
                         <img id="imgCloseCoberturas" class="alt-btnRojo" style="height: 20px; width: 20px;" 
-                        src="https://observatorio.alt-perubolivia.org/assets/iconos/close.svg" alt="" width="16">
+                        src="images/close.svg" alt="" width="16">
                     </div>
                 </div>
             </div>
@@ -499,7 +499,7 @@
                         DATOS COBERTURA
                     </div>
                     <div class="d-flex align-items-center">
-                        <img id="imgCloseInformacion" class="alt-btnRojo" style="height: 20px; width: 20px;" src="https://observatorio.alt-perubolivia.org/assets/iconos/close.svg" alt="" width="16">
+                        <img id="imgCloseInformacion" class="alt-btnRojo" style="height: 20px; width: 20px;" src="images/close.svg" alt="" width="16">
                     </div>
                 </div>
             </div>
@@ -580,15 +580,15 @@
         </div>
     </div>
 
-	<script src="https://observatorio.alt-perubolivia.org/assets/js/jquery-3.6.1.min.js"></script>
-    <script src="https://observatorio.alt-perubolivia.org/assets/js/jquery-ui.min.js"></script>
-    <script src="https://observatorio.alt-perubolivia.org/assets/js/leaflet.js"></script>
-    <script src="https://observatorio.alt-perubolivia.org/assets/js/popper.min.js"></script>
-    <script src="https://observatorio.alt-perubolivia.org/assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery-3.6.1.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/leaflet.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
     
-    <script src="https://observatorio.alt-perubolivia.org/assets/js/apexcharts.js"></script>
-    <script src="https://observatorio.alt-perubolivia.org/assets/js/togeojson.umd.js"></script>
-    <script src="https://observatorio.alt-perubolivia.org/assets/js/leaflet.filelayer.js"></script>
+    <script src="assets/js/apexcharts.js"></script>
+    <script src="assets/js/togeojson.umd.js"></script>
+    <script src="assets/js/leaflet.filelayer.js"></script>
     
     <script type="text/javascript">
 
@@ -611,10 +611,9 @@
     var metadatos = [];   //Variable donde se asignan datos generales de las coberturas
 
     const myModalAcercaDe = new bootstrap.Modal('#modalAcercaDe', { backdrop: false }); //Variable de tipo Modal Bootstrap 5.2
-    // const myModalMensaje = new bootstrap.Modal('#modalMensaje');   //Variable de tipo Modal Bootstrap 5.2
-
+    
     console.log( "loading!" );
-    // $(".loading-spinner").show();
+
     $( document ).ready(function() {
 
         //INICIALIZACION LEAFLET PARA LA VISUALIZACION DE MAPAS
@@ -747,7 +746,7 @@
             clickable: false
         };
         // var control = L.Control.fileLayerLoad({ fileSizeLimit: 9999 })
-        L.Control.FileLayerLoad.LABEL = '<img class="icon" src="https://observatorio.alt-perubolivia.org/assets/iconos/upload-azul.svg" alt="file icon"/>';
+        L.Control.FileLayerLoad.LABEL = '<img class="icon" src="images/upload-azul.svg" alt="file icon"/>';
         var control = L.Control.fileLayerLoad({
             layer: L.geoJson,
             layerOptions: {
@@ -871,8 +870,6 @@
         const coloresAsignados = {};
         var labels = [];
         $(".alt-chboxCoberturaBase").on("click", function (e) {
-            // alert('Cobertura Base '+$(this).val());
-            // alert(this.value);
             const labelcheckbox = document.querySelector(`label[for="${this.id}"]`);
 
             varintb = this.value;
@@ -884,7 +881,6 @@
 
                 const h5 = document.createElement("h5");
                 h5.id = varnomb;
-                // h5.classList.add("alt-textoAzul", "alt-texto2");
                 h5.classList.add("alt-textoAzul");
                 h5.style.fontSize = "0.9rem";
                 h5.style.padding = "12px 0px 5px 0px";
@@ -1094,34 +1090,7 @@
                 } else {
                     console.log('ninguno');
                 }
-                /*
-                $.get(url+'visorcoberturas/coberturasbase/'+this.value, function(datos){
-                    // console.log(datos[0][0].nombre);
-                    console.log(datos[1]);
-                    metadatos = datos[0];
-                    $("#general").html(datos[2]);
-                    // cobertura = L.geoJson(datos[0], {
-                    capasbase[varnomb] = L.geoJson(datos[1], {
-                        style: feature => {
-                            const name = feature.properties.NOM;  //fid
-                            if (!coloresAsignados[name]) {
-                                coloresAsignados[name] = obtenerColor();
-                            }
-                            return {
-                                color: coloresAsignados[name],
-                                weight: 2,
-                                fillOpacity: 0.5
-                            };
-                        },
-                        onEachFeature: caracteristicaCobertura,
-                        pointToLayer: puntoCapa,
-                    }); 
-
-                    capas.addLayer(capasbase[varnomb]);
-                    map.fitBounds(capasbase[varnomb].getBounds());
-                    ocultarTooltip();
-                });
-                */
+                
             } else {
                 // alert('Ocultar capa');
                 // capas.removeLayer(cobertura);
@@ -1180,27 +1149,7 @@
             let coords;
 
             if (feature.properties && feature.properties.NOM) {   //fid
-                // if (feature.geometry.type === "Point") {
-                //     layer.bindTooltip("Punto " + name, {
-                //         permanent: true,
-                //         direction: "top",
-                //         offset: [0, -10],
-                //         className: ""
-                //     });
-                // }else {
-                //     var center = layer.getBounds().getCenter();
-                //     label = L.marker(center, {
-                //         icon: L.divIcon({
-                //             className: "",
-                //             html: '<div style="margin-top: -28px; padding: 4px 6px; font-size: 12px; font-weight: bold; color: white; text-stroke: 1px black; text-shadow: 1px 1px 2px black, -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black; white-space: nowrap;">Poligono '+feature.properties.fid+'</div>',  //feature.properties.name,
-                //             iconSize: null
-                //         })
-                //     });
-                //     // label.addTo(map);
-                //     capas.addLayer(label);
-                //     // Guardamos referencia para controlarlo después
-                //     labels.push(label);
-                // }
+             
 
                 if (feature.geometry.type === "Polygon" || feature.geometry.type === "MultiPolygon" || feature.geometry.type === "LineString" || feature.geometry.type === "MultiLineString") {
                     if (typeof layer.getBounds === "function") {
@@ -1223,13 +1172,6 @@
                     labels.push(label);
                 }
             }
-
-            // Etiqueta centrada
-            // layer.bindTooltip(name, {
-            //     permanent: true,
-            //     direction: "center",
-            //     className: "polygon-label"
-            // });
 
             // Agregar ítem a la leyenda
             const li = document.createElement("li");
@@ -1309,8 +1251,6 @@
             // layer.bringToBack();
         }
         function resetearCobertura(e){
-            // cobertura.resetStyle(e.target);
-            // capasbase[varnomb].resetStyle(e.terget);
             const layer = e.target;
             layer.setStyle({
                 // weight: 2,
@@ -1355,36 +1295,6 @@
                 }
             })
         });
-
-        //BOTON DE DESCARGA DE METADATOS
-        // $("#btnDescargarMetaDato").on("click", function (e) {
-        $(".alt-btnMetaDato").on("click", function (e) {
-            // alert(this.value);
-            var link = document.createElement("a")
-            link.href = url+'visorcoberturas/metadato/'+this.value;
-            link.target = "_blank"
-            link.click()
-        });
-
-        //BOTON DE DESCARGA DE GEOJSON Y FUNCION QUE PERMITE LA DESCARGA DEL ARCHIVO GEOJSON
-        // $("#btnDescargarGeoJson").on("click", function (e) {
-        $(".alt-btnGeoJson").on("click", function (e) {
-            // alert(this.value);
-            $.get(url+'visorcoberturas/geojson/'+this.value, function(datos){
-                // console.log(datos[0]);
-                // console.log(metadatos[0].id);
-                guardarArchivoDeTextoGeoJson(datos[0], datos[1]+".geojson");
-            });
-        });
-        const guardarArchivoDeTextoGeoJson = (contenido, nombre) => {
-            const a = document.createElement("a");
-            const archivo = new Blob([contenido], { type: 'text/json' });
-            const url = URL.createObjectURL(archivo);
-            a.href = url;
-            a.download = nombre;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
 
         //OBTENER EL VALOR DE IMG PARA MAPAS BASE
         $(".alt-imgBtn").on("click", function (e) {
