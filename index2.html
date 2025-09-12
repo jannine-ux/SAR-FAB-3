@@ -25,6 +25,10 @@
     </style>
 
     <link rel="icon" href="images/logoemi.jpg">
+    <!-- Hoja de estilos del plugin Leaflet Control Search -->
+    <link rel="stylesheet" href="https://opengeo.tech/maps/leaflet-search/src/leaflet-search.css" />
+    <!-- Script del plugin Leaflet Control Search -->
+    <script src="https://opengeo.tech/maps/leaflet-search/dist/leaflet-search.src.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/leaflet.css">
     <link rel="stylesheet" href="assets/css/aos.css">
@@ -84,6 +88,12 @@
                             <a class="btn alt-btnBlanco alt-textoAzul d-flex align-items-center border-0 ml-1" id="btnRuteo" href="ruteo2.html" style="font-size: 0.9rem;">
                                 <img src="images/stack-azul.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                                 Rutas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn alt-btnBlanco alt-textoAzul d-flex align-items-center border-0 ml-1" id="btnRuteo" href="ruteo3.html" style="font-size: 0.9rem;">
+                                <img src="images/stack-azul.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                                Busqueda
                             </a>
                         </li>
                     </ul>
@@ -165,6 +175,16 @@
                                 <div class="row" style="position: absolute; top:0px; left:0px">
                                     <label class="fw-bold alt-textoBlanco" style="font-size: 0.8rem;" for="cobuso">
                                         Cobertura Uso de Suelo
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center" style="position: relative;">
+                                <img id="curvasnivel" class="rounded alt-imgBtn" src="images/gis15.png" alt="mapaopentopo" width="110" height="110">
+                                <div class="row" style="position: absolute; top:0px; left:0px">
+                                    <label class="fw-bold alt-textoBlanco" style="font-size: 0.8rem;" for="cobuso">
+                                        Curvas de Nivel
                                     </label>
                                 </div>
                             </div>
@@ -623,6 +643,7 @@
                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
                     // tileSize: 100
         }).addTo(map);
+        
         capasmb.push(tiles);
         capas = L.layerGroup().addTo(map);
         L.Marker.prototype.options.icon = L.icon({
@@ -816,6 +837,30 @@
             }
         });
 
+        // Añade el control de búsqueda
+       /* var searchControl = new L.Control.Search({
+            layer: json_COMUNIDADESJURISDICCION_4,          // Capa donde buscar
+            propertyName: 'nomcomunid',         // Propiedad del GeoJSON a buscar (cambia si tu propiedad es diferente)
+            marker: false,                // No usar marcadores adicionales
+            initial: false,               // Búsqueda no sensible a mayúsculas iniciales
+            textPlaceholder: 'Buscar por nombre...', // Texto del placeholder
+            moveToLocation: function(latlng, title, map) {
+                // Centra el mapa en la ubicación encontrada y ajusta el zoom
+                map.setView(latlng, 10);
+            }
+        }).addTo(map);
+
+        // Evento cuando se encuentra un resultado
+        searchControl.on('search:locationfound', function(e) {
+            e.layer.openPopup();  // Abre el popup del feature encontrado
+        });
+
+        // Evento cuando no se encuentra nada (opcional)
+        searchControl.on('search:collapsed', function(e) {
+            geojsonLayer.eachLayer(function(layer) {
+                layer.closePopup();  // Cierra popups abiertos
+            });
+        });*/
         //CARGAR MAPA DEL POR DEFECTO
         //cargarCobertura();
 
@@ -1005,7 +1050,7 @@
                                 style: feature => {const name = feature.properties.NOMBRE;  //fid
                                     
                                     return {
-                                        color: 'rgba(247,251,255,1.0)',weight: 2,fillOpacity: 0.5
+                                        color: 'rgba(3,169,244,1.0)',weight: 2,fillOpacity: 0.5
                                     };
                                 },onEachFeature: caracteristicaCobertura,pointToLayer: puntoCapa,
                             }); 
@@ -1351,6 +1396,17 @@
                 }).addTo(map);
                 capasmb.push(CobMap);
             }
+            if (e.target.id == "curvasnivel") {
+                var CobMap =  L.tileLayer.wms('https://geo.gob.bo/geoserver/geonode/wms', {
+                layers: 'geonode:curvas_municipiowgs84',
+                format: 'image/png',
+                transparent: true,
+                attribution: '© <a href="#">CURVAS DE NIVEL LA PAZ</a>',
+                opacity: 0.7
+                }).addTo(map);
+                capasmb.push(CobMap);
+            }
+            
         });
 
        
