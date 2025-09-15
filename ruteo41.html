@@ -1,0 +1,2217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Visor Servicio Voluntario de Búsqueda y Rescate</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <style>
+        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
+    </style>
+    <style type="text/css" media="print">
+        @media print {
+            #navbar {display:none;}
+            #divMapasBase {display:none;}
+            #divCoberturas {display: none;}
+            #divInformacion {display: none;}
+        }
+    </style>
+
+    <link rel="icon" href="images/logoemi.jpg">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/leaflet.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/altstyle.css">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Leaflet Search CSS -->
+    <link rel="stylesheet" href="https://opengeo.tech/maps/leaflet-search/dist/leaflet-search.min.css" />
+    <!-- Leaflet Routing Machine CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    
+    <style>
+        #map {
+            height: 100%; 
+            width: 100%; 
+            margin-top: 60px;
+        }
+        
+        .search-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        
+        .info-panel {
+            position: absolute;
+            top: 560px; /* Bajado 50px desde la parte superior */
+            left: 10px;
+            z-index: 1000;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            max-width: 300px;
+        }
+        
+        .route-info {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+        }
+        
+        /* Estilos personalizados para el search */
+        .search-tooltip {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px;
+        }
+        
+        .search-icon {
+            color: #007bff;
+        }
+        
+        /* Estilo para botones */
+        .popup-button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .route-button {
+            background: #007bff;
+        }
+        
+        .report-button {
+            background: #28a745;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid vh-100 px-0">
+
+        <!-- NavBar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top alt-bgBlanco" id="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand alt-textoAzul fw-bold" href="#">
+                    <img src="images/logo_emi.jpg" alt="Logo" width="65" height="34" class="d-inline-block align-text-top">
+                    SAR-FAB
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        
+                    </ul>
+                    <form class="d-flex navbar-nav" role="search">
+                        <li class="nav-item">
+                            <a class="btn alt-btnBlanco alt-textoAzul d-flex align-items-center border-0 ml-1" id="btnMapasBase" href="index.html" style="font-size: 0.9rem;">
+                                <img src="images/map-azul.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                                Geovisor
+                            </a>
+                        </li>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- NavBar -->
+
+        <!-- Div Mapa -->
+        <div class="vw-100 vh-100" id="map">
+        </div>
+    
+    <div class="info-panel">
+        <h3>SAR desde Aeropuerto</h3>
+        <p><strong>Aeropuerto:</strong></p>
+        <div id="route-info" class="route-info" style="display: none;">
+            <h4>Información de Ruta</h4>
+            <p id="distance"></p>
+            <p id="time"></p>
+            <button id="clear-route" style="margin-top: 10px; padding: 5px 10px; background: #dc3545; color: white; border: none; border-radius: 3px; cursor: pointer;">
+                Limpiar Ruta
+            </button>
+        </div>
+    </div>
+
+   
+    <link rel="stylesheet" href="css/L.Control.Locate.min.css">
+    
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/leaflet.photon.css">
+
+    <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/qgis2web_expressions.js"></script>
+    <script src="js/L.Control.Layers.Tree.min.js"></script>
+    <script src="js/L.Control.Locate.min.js"></script>
+    <script src="js/multi-style-layer.js"></script>
+    <script src="js/leaflet-svg-shape-markers.min.js"></script>
+    <script src="js/leaflet.rotatedMarker.js"></script>
+    <script src="js/leaflet-hash.js"></script>
+    <script src="js/Autolinker.min.js"></script>
+    <script src="js/rbush.min.js"></script>
+    <script src="js/labelgun.min.js"></script>
+    <script src="js/labels.js"></script>
+    <script src="js/leaflet.photon.js"></script>
+
+
+    <script src="data/AEROPUERTOSJURISDICCION_1.js"></script>
+    <script src="data/CENTROSDESALUDJURISDICCION_2.js"></script>
+    <script src="data/CENTROSEDUCATIVOSJURISDICCION_3.js"></script>
+    <script src="data/LINEADEMEDIATENSION_5.js"></script>
+    <script src="data/LINEADEALTATENSIONJURISDICCION_6.js"></script>
+    <script src="data/MUNICIPIOSJURISDICCION_7.js"></script>
+    <script src="data/PUERTOSJURISDICCION_8.js"></script>
+    <script src="data/VIASSECUNDARIASJURISDICCION_9.js"></script>
+    <script src="data/REDVIALFUNDAMENTALJURISDICCION_10.js"></script>
+    <script src="data/SARFABILLIMANIJURISDICCION_11.js"></script>
+    <script src="data/RIOSSECUNDARIOSJURISDICCION_12.js"></script>
+    <script src="data/RIOSPRINCIPALES_13.js"></script>
+
+    <script src="data/ISOTERMASJURISDICCION_17.js"></script>
+    <script src="data/ISOYETASJURISDICCION_18.js"></script>
+    <!-- Leaflet Search JS (versión específica) -->
+    <script src="https://opengeo.tech/maps/leaflet-search/dist/leaflet-search.src.js"></script>
+    
+    <!-- Leaflet Routing Machine JS -->
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    
+    <!-- Simulamos los datos de comunidades ya que no tenemos acceso al archivo real -->
+<script src="data/COMUNIDADESJURISDICCION_4.js"></script>
+
+    <script>
+        // Coordenadas del aeropuerto (formato [lat, lng])
+        const aeropuertoCoords = [-16.512500000174839, -68.19222220009442];
+        
+        // Datos de ejemplo de comunidades (reemplaza con tu JSON real)
+       const comunidadesData = json_COMUNIDADESJURISDICCION_4;
+       const capasmb = [];   //Variable de tipo vector donde se almacenan los mapas base que se cargan en el geovisor
+        // Inicializar el mapa
+        const map = L.map('map').setView(aeropuertoCoords, 12);
+        const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 18,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+                    // tileSize: 100
+        });
+        
+        //capasmb.push(tiles);
+        capas = L.layerGroup().addTo(map);
+        // Añadir capa base
+        /*L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);*/
+         const googletiles = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+                            maxZoom: 18,
+                            subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
+                }).addTo(map);
+        //capasmb.push(googletiles);
+        var baseMaps = {
+            "OpenStreetMap": tiles,
+            "Google Maps": googletiles
+        };
+        // Marcador del aeropuerto
+        const aeropuertoMarker = L.marker(aeropuertoCoords)
+            .addTo(map)
+            .bindPopup(`
+                <div style="text-align: center;">
+                    <strong>🏢 Aeropuerto SAR</strong><br>
+                    <em>Punto de partida</em><br>
+                    Coord: ${aeropuertoCoords[0].toFixed(6)}, ${aeropuertoCoords[1].toFixed(6)}
+                </div>
+            `)
+            .openPopup();
+
+        // Variable para almacenar la capa de comunidades
+        let comunidadesLayer;
+        
+        // Variable para almacenar la comunidad seleccionada
+        let selectedCommunity = null;
+        
+        // Variable para controlar la ruta actual
+        let currentRoute = null;
+
+        // Función para inicializar la capa de comunidades
+        function initComunidadesLayer() {
+            comunidadesLayer = L.geoJSON(comunidadesData, {
+                pointToLayer: function(feature, latlng) {
+                    // Verificar que las coordenadas sean válidas
+                    if (!latlng || isNaN(latlng.lat) || isNaN(latlng.lng)) {
+                        console.error('Coordenadas inválidas para:', feature.properties.nomcomunid);
+                        return null;
+                    }
+                    
+                    return L.marker(latlng, {
+                        icon: L.icon({
+                            iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+                            iconSize: [15, 21],
+                            iconAnchor: [12, 21],
+                            popupAnchor: [1, -34]
+                        })
+                    });
+                },
+                onEachFeature: function(feature, layer) {
+                    if (feature.properties) {
+                        // Validar que las coordenadas existan
+                        const lat = parseFloat(feature.properties.y);
+                        const lng = parseFloat(feature.properties.x);
+                        
+                        if (isNaN(lat) || isNaN(lng)) {
+                            console.error('Coordenadas inválidas para:', feature.properties.nomcomunid);
+                            return;
+                        }
+                        
+                        const popupContent = `
+                            <div style="min-width: 200px;">
+                                Departamento: ${feature.properties.nom_dep} <br>
+                                Municipio ${feature.properties.nom_mun}<br>
+                                <strong>Comunidad📍 ${feature.properties.nomcomunid}</strong><br>
+                               
+                                <button onclick="calcularRuta(${lat}, ${lng}, '${feature.properties.nomcomunid.replace(/'/g, "\\'")}')" 
+                                        style="margin-top: 10px; padding: 5px 10px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; width: 100%;">
+                                    🗺️ Ruta desde Aeropuerto
+                                </button>
+                                <button onclick="abrirReporte('reporte')" 
+                                        class="popup-button report-button">
+                                    📊 Reporte
+                                </button>
+                            </div>
+                        `;
+                        layer.bindPopup(popupContent);
+                        
+                        // Almacenar datos para la búsqueda
+                        layer._searchData = {
+                            name: feature.properties.nomcomunid,
+                            lat: lat,
+                            lng: lng
+                        };
+                    }
+                }
+            }).addTo(map);
+        }
+
+        // Inicializar la capa de comunidades
+        initComunidadesLayer();
+
+        // Función para abrir reporte PDF (disponible globalmente)
+        window.abrirReporte = function(comunidadNombre) {
+            // Simulamos la apertura del reporte PDF
+            // En un caso real, aquí pondrías la URL real del PDF
+            const url = `files/PERSONAL_EQUIPO2.pdf`;
+            window.open(url, '_blank');
+            console.log("Abriendo reporte para:", comunidadNombre, "URL:", url);
+        };
+
+        // Función para ocultar todas las comunidades excepto la seleccionada
+        function hideOtherCommunities(selectedCommunityName) {
+            comunidadesLayer.eachLayer(function(layer) {
+                if (layer._searchData && layer._searchData.name !== selectedCommunityName) {
+                    map.removeLayer(layer);
+                }
+            });
+        }
+
+        // Función para mostrar todas las comunidades
+        function showAllCommunities() {
+            map.removeLayer(comunidadesLayer);
+            initComunidadesLayer();
+        }
+
+        // Función para calcular y mostrar la ruta (disponible globalmente)
+        window.calcularRuta = function(lat, lng, comunidadNombre) {
+            // Validar coordenadas
+            if (isNaN(lat) || isNaN(lng)) {
+                console.error('Coordenadas inválidas:', lat, lng);
+                alert('Coordenadas inválidas para la comunidad: ' + comunidadNombre);
+                return;
+            }
+            
+            // Eliminar ruta anterior si existe
+            if (currentRoute) {
+                map.removeControl(currentRoute);
+                currentRoute = null;
+            }
+
+            // Ocultar otras comunidades
+            hideOtherCommunities(comunidadNombre);
+            selectedCommunity = comunidadNombre;
+
+            // Mostrar información de la ruta
+            document.getElementById('route-info').style.display = 'block';
+            document.getElementById('distance').innerHTML = '<strong>Distancia:</strong> Calculando...';
+            document.getElementById('time').innerHTML = '<strong>Tiempo estimado:</strong> Calculando...';
+
+            // Crear nueva ruta
+            currentRoute = L.Routing.control({
+                waypoints: [
+                    L.latLng(aeropuertoCoords[0], aeropuertoCoords[1]),
+                    L.latLng(lat, lng)
+                ],
+                routeWhileDragging: false,
+                showAlternatives: false,
+                addWaypoints: false,
+                lineOptions: {
+                    styles: [{color: '#8000FF', opacity: 0.7, weight: 6}]
+                },
+                createMarker: function(i, waypoint, n) {
+                    // Solo mostrar marcador para el aeropuerto (punto de inicio)
+                    if (i === 0) {
+                        return L.marker(waypoint.latLng, {
+                            icon: L.icon({
+                                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+                                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/local-6634.gif',
+                                iconSize: [25, 41],
+                                iconAnchor: [12, 41],
+                                popupAnchor: [1, -34],
+                                shadowSize: [41, 41]
+                            })
+                        }).bindPopup('🏢 <strong>Aeropuerto</strong><br>Punto de partida');
+                    }
+                    return null;
+                },
+                formatter: new L.Routing.Formatter({
+                    language: 'es',
+                    units: 'metric'
+                })
+            }).addTo(map);
+
+            // Escuchar evento cuando la ruta esté lista
+            currentRoute.on('routesfound', function(e) {
+                const routes = e.routes;
+                const route = routes[0];
+                
+                if (route && route.summary) {
+                    document.getElementById('distance').innerHTML = 
+                        `<strong>📏 Distancia:</strong> ${(route.summary.totalDistance / 1000).toFixed(2)} km`;
+                    document.getElementById('time').innerHTML = 
+                        `<strong>⏱️ Tiempo estimado:</strong> ${Math.round(route.summary.totalTime / 60)} minutos`;
+                }
+            });
+
+            // Manejar errores de ruta
+            currentRoute.on('routingerror', function(e) {
+                console.error('Error al calcular la ruta:', e.error);
+                document.getElementById('distance').innerHTML = 
+                    `<strong>❌ Error:</strong> No se pudo calcular la ruta`;
+                document.getElementById('time').innerHTML = '';
+            });
+
+            // Centrar el mapa en la ruta
+            const bounds = L.latLngBounds([aeropuertoCoords, [lat, lng]]);
+            map.fitBounds(bounds, { padding: [100, 100] });
+        };
+
+        // Configurar el sistema de búsqueda con la librería específica
+        const searchControl = new L.Control.Search({
+            layer: comunidadesLayer,
+            propertyName: 'nomcomunid',
+            textPlaceholder: 'Buscar comunidad...',
+            textErr: 'Comunidad no encontrada',
+            moveToLocation: function(latlng, title, map) {
+                map.setView(latlng, 14);
+            },
+            marker: false,
+            initial: false,
+            zoom: 14,
+            hideMarkerOnCollapse: true,
+            autoCollapse: true,
+            autoType: false,
+            minLength: 2,
+            position: 'topright'
+        });
+
+        // Personalizar el estilo del search
+        searchControl.on('search:show', function(e) {
+            const container = this._container;
+            container.style.background = 'white';
+            container.style.borderRadius = '5px';
+            container.style.padding = '5px';
+        });
+
+        searchControl.on('search:locationfound', function(e) {
+            const layer = e.layer;
+            if (!layer || !layer._searchData) {
+                console.error('Capa no válida en la búsqueda');
+                return;
+            }
+            
+            const lat = layer._searchData.lat;
+            const lng = layer._searchData.lng;
+            const comunidadNombre = layer._searchData.name;
+            
+            // Calcular ruta desde el aeropuerto
+            calcularRuta(lat, lng, comunidadNombre);
+            
+            // Abrir popup de la comunidad
+            layer.openPopup();
+        });
+
+        searchControl.on('search:collapsed', function(e) {
+            // Opcional: acciones cuando se colapsa la búsqueda
+        });
+
+        // Añadir control de búsqueda al mapa
+        map.addControl(searchControl);
+        // Añadir ubicación
+        L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        //------------------------------------------------------------------------------
+         var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString' || e.target.feature.geometry.type === 'MultiLineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+            highlightLayer.openPopup();
+        }
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        // remove popup's row if "visible-with-data"
+        function removeEmptyRowsFromPopupContent(content, feature) {
+         var tempDiv = document.createElement('div');
+         tempDiv.innerHTML = content;
+         var rows = tempDiv.querySelectorAll('tr');
+         for (var i = 0; i < rows.length; i++) {
+             var td = rows[i].querySelector('td.visible-with-data');
+             var key = td ? td.id : '';
+             if (td && td.classList.contains('visible-with-data') && feature.properties[key] == null) {
+                 rows[i].parentNode.removeChild(rows[i]);
+             }
+         }
+         return tempDiv.innerHTML;
+        }
+        // add class to format popup if it contains media
+		function addClassToPopupIfMedia(content, popup) {
+			var tempDiv = document.createElement('div');
+			tempDiv.innerHTML = content;
+			if (tempDiv.querySelector('td img')) {
+				popup._contentNode.classList.add('media');
+					// Delay to force the redraw
+					setTimeout(function() {
+						popup.update();
+					}, 10);
+			} else {
+				popup._contentNode.classList.remove('media');
+			}
+		}
+        function pop_AEROPUERTOSJURISDICCION_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Nombre_Aer</th>\
+                        <td>' + (feature.properties['Nombre_Aer'] !== null ? autolinker.link(String(feature.properties['Nombre_Aer']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DEPARTAMEN</th>\
+                        <td>' + (feature.properties['DEPARTAMEN'] !== null ? autolinker.link(String(feature.properties['DEPARTAMEN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROVINCIA</th>\
+                        <td>' + (feature.properties['PROVINCIA'] !== null ? autolinker.link(String(feature.properties['PROVINCIA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUNICIPIO</th>\
+                        <td>' + (feature.properties['MUNICIPIO'] !== null ? autolinker.link(String(feature.properties['MUNICIPIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_AEROPUERTOSJURISDICCION_1_0() {
+            return {
+                pane: 'pane_AEROPUERTOSJURISDICCION_1',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/AEROPUERTOSJURISDICCION_1.svg',
+            iconSize: [22.799999999999997, 22.799999999999997]
+        }),
+                interactive: true,
+            }
+        }
+        function style_AEROPUERTOSJURISDICCION_1_1() {
+            return {
+                pane: 'pane_AEROPUERTOSJURISDICCION_1',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/AEROPUERTOSJURISDICCION_1.svg',
+            iconSize: [22.799999999999997, 22.799999999999997]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_AEROPUERTOSJURISDICCION_1');
+        map.getPane('pane_AEROPUERTOSJURISDICCION_1').style.zIndex = 401;
+        map.getPane('pane_AEROPUERTOSJURISDICCION_1').style['mix-blend-mode'] = 'normal';
+        var layer_AEROPUERTOSJURISDICCION_1 = new L.geoJson.multiStyle(json_AEROPUERTOSJURISDICCION_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_AEROPUERTOSJURISDICCION_1',
+            layerName: 'layer_AEROPUERTOSJURISDICCION_1',
+            pane: 'pane_AEROPUERTOSJURISDICCION_1',
+            onEachFeature: pop_AEROPUERTOSJURISDICCION_1,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_AEROPUERTOSJURISDICCION_1_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_AEROPUERTOSJURISDICCION_1_1(feature));
+            },
+        ]});
+        bounds_group.addLayer(layer_AEROPUERTOSJURISDICCION_1);
+        map.addLayer(layer_AEROPUERTOSJURISDICCION_1);
+        function pop_CENTROSDESALUDJURISDICCION_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">TIPO</th>\
+                        <td>' + (feature.properties['TIPO'] !== null ? autolinker.link(String(feature.properties['TIPO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TIPO_DESCR</th>\
+                        <td>' + (feature.properties['TIPO_DESCR'] !== null ? autolinker.link(String(feature.properties['TIPO_DESCR']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">NOMBRE_EST</th>\
+                        <td>' + (feature.properties['NOMBRE_EST'] !== null ? autolinker.link(String(feature.properties['NOMBRE_EST']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DEPARTAMEN</th>\
+                        <td>' + (feature.properties['DEPARTAMEN'] !== null ? autolinker.link(String(feature.properties['DEPARTAMEN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROVINCIA</th>\
+                        <td>' + (feature.properties['PROVINCIA'] !== null ? autolinker.link(String(feature.properties['PROVINCIA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUNICIPIO</th>\
+                        <td>' + (feature.properties['MUNICIPIO'] !== null ? autolinker.link(String(feature.properties['MUNICIPIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CENTROSDESALUDJURISDICCION_2_0() {
+            return {
+                pane: 'pane_CENTROSDESALUDJURISDICCION_2',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+        }
+        function style_CENTROSDESALUDJURISDICCION_2_1() {
+            return {
+                pane: 'pane_CENTROSDESALUDJURISDICCION_2',
+                radius: 2.3077,
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CENTROSDESALUDJURISDICCION_2');
+        map.getPane('pane_CENTROSDESALUDJURISDICCION_2').style.zIndex = 402;
+        map.getPane('pane_CENTROSDESALUDJURISDICCION_2').style['mix-blend-mode'] = 'normal';
+        var layer_CENTROSDESALUDJURISDICCION_2 = new L.geoJson.multiStyle(json_CENTROSDESALUDJURISDICCION_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CENTROSDESALUDJURISDICCION_2',
+            layerName: 'layer_CENTROSDESALUDJURISDICCION_2',
+            pane: 'pane_CENTROSDESALUDJURISDICCION_2',
+            onEachFeature: pop_CENTROSDESALUDJURISDICCION_2,
+            pointToLayers: [function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_CENTROSDESALUDJURISDICCION_2_0(feature));
+            },function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_CENTROSDESALUDJURISDICCION_2_1(feature));
+            },
+        ]});
+        //bounds_group.addLayer(layer_CENTROSDESALUDJURISDICCION_2);
+        //map.addLayer(layer_CENTROSDESALUDJURISDICCION_2);
+        function pop_CENTROSEDUCATIVOSJURISDICCION_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">nombre_for</th>\
+                        <td>' + (feature.properties['nombre_for'] !== null ? autolinker.link(String(feature.properties['nombre_for']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">area_influ</th>\
+                        <td>' + (feature.properties['area_influ'] !== null ? autolinker.link(String(feature.properties['area_influ']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FID_Bol_Mu</th>\
+                        <td>' + (feature.properties['FID_Bol_Mu'] !== null ? autolinker.link(String(feature.properties['FID_Bol_Mu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DEPARTAMEN</th>\
+                        <td>' + (feature.properties['DEPARTAMEN'] !== null ? autolinker.link(String(feature.properties['DEPARTAMEN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROVINCIA</th>\
+                        <td>' + (feature.properties['PROVINCIA'] !== null ? autolinker.link(String(feature.properties['PROVINCIA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUNICIPIO</th>\
+                        <td>' + (feature.properties['MUNICIPIO'] !== null ? autolinker.link(String(feature.properties['MUNICIPIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CENTROSEDUCATIVOSJURISDICCION_3_0() {
+            return {
+                pane: 'pane_CENTROSEDUCATIVOSJURISDICCION_3',
+                shape: 'diamond',
+                radius: 8.8,
+                opacity: 1,
+                color: 'rgba(128,17,25,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,30,42,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CENTROSEDUCATIVOSJURISDICCION_3');
+        map.getPane('pane_CENTROSEDUCATIVOSJURISDICCION_3').style.zIndex = 403;
+        map.getPane('pane_CENTROSEDUCATIVOSJURISDICCION_3').style['mix-blend-mode'] = 'normal';
+        var layer_CENTROSEDUCATIVOSJURISDICCION_3 = new L.geoJson(json_CENTROSEDUCATIVOSJURISDICCION_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CENTROSEDUCATIVOSJURISDICCION_3',
+            layerName: 'layer_CENTROSEDUCATIVOSJURISDICCION_3',
+            pane: 'pane_CENTROSEDUCATIVOSJURISDICCION_3',
+            onEachFeature: pop_CENTROSEDUCATIVOSJURISDICCION_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_CENTROSEDUCATIVOSJURISDICCION_3_0(feature));
+            },
+        });
+        //bounds_group.addLayer(layer_CENTROSEDUCATIVOSJURISDICCION_3);
+        //map.addLayer(layer_CENTROSEDUCATIVOSJURISDICCION_3);
+        function pop_COMUNIDADESJURISDICCION_4(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">DEPARTAMENTO</th>\
+                        <td>' + (feature.properties['nom_dep'] !== null ? autolinker.link(String(feature.properties['nom_dep']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROVINCIA</th>\
+                        <td>' + (feature.properties['nom_prov'] !== null ? autolinker.link(String(feature.properties['nom_prov']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUNICIPIO</th>\
+                        <td>' + (feature.properties['nom_mun'] !== null ? autolinker.link(String(feature.properties['nom_mun']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">REGIONES</th>\
+                        <td>' + (feature.properties['regiones_p'] !== null ? autolinker.link(String(feature.properties['regiones_p']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SUB REGION</th>\
+                        <td>' + (feature.properties['sub_region'] !== null ? autolinker.link(String(feature.properties['sub_region']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">COMUNIDAD</th>\
+                        <td>' + (feature.properties['nomcomunid'] !== null ? autolinker.link(String(feature.properties['nomcomunid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_COMUNIDADESJURISDICCION_4_0() {
+            return {
+                pane: 'pane_COMUNIDADESJURISDICCION_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_COMUNIDADESJURISDICCION_4');
+        map.getPane('pane_COMUNIDADESJURISDICCION_4').style.zIndex = 404;
+        map.getPane('pane_COMUNIDADESJURISDICCION_4').style['mix-blend-mode'] = 'normal';
+        var layer_COMUNIDADESJURISDICCION_4 = new L.geoJson(json_COMUNIDADESJURISDICCION_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_COMUNIDADESJURISDICCION_4',
+            layerName: 'layer_COMUNIDADESJURISDICCION_4',
+            pane: 'pane_COMUNIDADESJURISDICCION_4',
+            onEachFeature: pop_COMUNIDADESJURISDICCION_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_COMUNIDADESJURISDICCION_4_0(feature));
+            },
+        });
+        //bounds_group.addLayer(layer_COMUNIDADESJURISDICCION_4);
+        //map.addLayer(layer_COMUNIDADESJURISDICCION_4);
+        function pop_LINEADEMEDIATENSION_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">TENSION</th>\
+                        <td>' + (feature.properties['TENSION'] !== null ? autolinker.link(String(feature.properties['TENSION']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">EMPRESA</th>\
+                        <td>' + (feature.properties['EMPRESA'] !== null ? autolinker.link(String(feature.properties['EMPRESA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SISTEMA</th>\
+                        <td>' + (feature.properties['SISTEMA'] !== null ? autolinker.link(String(feature.properties['SISTEMA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DEPARTAMEN</th>\
+                        <td>' + (feature.properties['DEPARTAMEN'] !== null ? autolinker.link(String(feature.properties['DEPARTAMEN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROVINCIA</th>\
+                        <td>' + (feature.properties['PROVINCIA'] !== null ? autolinker.link(String(feature.properties['PROVINCIA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUNICIPIO</th>\
+                        <td>' + (feature.properties['MUNICIPIO'] !== null ? autolinker.link(String(feature.properties['MUNICIPIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['icon'] !== null ? autolinker.link(String(feature.properties['icon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_LINEADEMEDIATENSION_5_0() {
+            return {
+                pane: 'pane_LINEADEMEDIATENSION_5',
+                opacity: 1,
+                color: 'rgba(255,201,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_LINEADEMEDIATENSION_5');
+        map.getPane('pane_LINEADEMEDIATENSION_5').style.zIndex = 405;
+        map.getPane('pane_LINEADEMEDIATENSION_5').style['mix-blend-mode'] = 'normal';
+        var layer_LINEADEMEDIATENSION_5 = new L.geoJson(json_LINEADEMEDIATENSION_5, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LINEADEMEDIATENSION_5',
+            layerName: 'layer_LINEADEMEDIATENSION_5',
+            pane: 'pane_LINEADEMEDIATENSION_5',
+            onEachFeature: pop_LINEADEMEDIATENSION_5,
+            style: style_LINEADEMEDIATENSION_5_0,
+        });
+        //bounds_group.addLayer(layer_LINEADEMEDIATENSION_5);
+        //map.addLayer(layer_LINEADEMEDIATENSION_5);
+        function pop_LINEADEALTATENSIONJURISDICCION_6(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">TENSION</th>\
+                        <td>' + (feature.properties['TENSION'] !== null ? autolinker.link(String(feature.properties['TENSION']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DEPARTAMENTO</th>\
+                        <td>' + (feature.properties['DEPARTAMEN'] !== null ? autolinker.link(String(feature.properties['DEPARTAMEN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROVINCIA</th>\
+                        <td>' + (feature.properties['PROVINCIA'] !== null ? autolinker.link(String(feature.properties['PROVINCIA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUNICIPIO</th>\
+                        <td>' + (feature.properties['MUNICIPIO'] !== null ? autolinker.link(String(feature.properties['MUNICIPIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CODIGO</th>\
+                        <td>' + (feature.properties['CODIGO'] !== null ? autolinker.link(String(feature.properties['CODIGO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Shape_Leng</th>\
+                        <td>' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(String(feature.properties['Shape_Leng']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? autolinker.link(String(feature.properties['drawOrder']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['icon'] !== null ? autolinker.link(String(feature.properties['icon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_LINEADEALTATENSIONJURISDICCION_6_0() {
+            return {
+                pane: 'pane_LINEADEALTATENSIONJURISDICCION_6',
+                opacity: 1,
+                color: 'red',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_LINEADEALTATENSIONJURISDICCION_6');
+        map.getPane('pane_LINEADEALTATENSIONJURISDICCION_6').style.zIndex = 406;
+        map.getPane('pane_LINEADEALTATENSIONJURISDICCION_6').style['mix-blend-mode'] = 'normal';
+        var layer_LINEADEALTATENSIONJURISDICCION_6 = new L.geoJson(json_LINEADEALTATENSIONJURISDICCION_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LINEADEALTATENSIONJURISDICCION_6',
+            layerName: 'layer_LINEADEALTATENSIONJURISDICCION_6',
+            pane: 'pane_LINEADEALTATENSIONJURISDICCION_6',
+            onEachFeature: pop_LINEADEALTATENSIONJURISDICCION_6,
+            style: style_LINEADEALTATENSIONJURISDICCION_6_0,
+        });
+        //bounds_group.addLayer(layer_LINEADEALTATENSIONJURISDICCION_6);
+        //map.addLayer(layer_LINEADEALTATENSIONJURISDICCION_6);
+        function pop_MUNICIPIOSJURISDICCION_7(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">DEPARTAMENTO</th>\
+                        <td>' + (feature.properties['PAI'] !== null ? autolinker.link(String(feature.properties['PAI']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROVINCIA</th>\
+                        <td>' + (feature.properties['PRO'] !== null ? autolinker.link(String(feature.properties['PRO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUNICIPIO</th>\
+                        <td>' + (feature.properties['NOM'] !== null ? autolinker.link(String(feature.properties['NOM']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CAPITAL</th>\
+                        <td>' + (feature.properties['capital'] !== null ? autolinker.link(String(feature.properties['capital']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_MUNICIPIOSJURISDICCION_7_0() {
+            return {
+                pane: 'pane_MUNICIPIOSJURISDICCION_7',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0.5,
+                interactive: true,
+            }
+        }
+        //map.createPane('pane_MUNICIPIOSJURISDICCION_7');
+        //map.getPane('pane_MUNICIPIOSJURISDICCION_7').style.zIndex = 407;
+        //map.getPane('pane_MUNICIPIOSJURISDICCION_7').style['mix-blend-mode'] = 'normal';
+        var layer_MUNICIPIOSJURISDICCION_7 = new L.geoJson(json_MUNICIPIOSJURISDICCION_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MUNICIPIOSJURISDICCION_7',
+            layerName: 'layer_MUNICIPIOSJURISDICCION_7',
+            pane: 'pane_MUNICIPIOSJURISDICCION_7',
+            onEachFeature: pop_MUNICIPIOSJURISDICCION_7,
+            style: style_MUNICIPIOSJURISDICCION_7_0,
+        });
+        //bounds_group.addLayer(layer_MUNICIPIOSJURISDICCION_7);
+        //map.addLayer(layer_MUNICIPIOSJURISDICCION_7);
+        function pop_PUERTOSJURISDICCION_8(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">CLASIFICAC</th>\
+                        <td>' + (feature.properties['CLASIFICAC'] !== null ? autolinker.link(String(feature.properties['CLASIFICAC']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">NOMBRE</th>\
+                        <td>' + (feature.properties['NOMBRE'] !== null ? autolinker.link(String(feature.properties['NOMBRE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DISTR_NAVA</th>\
+                        <td>' + (feature.properties['DISTR_NAVA'] !== null ? autolinker.link(String(feature.properties['DISTR_NAVA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DEPARTAMEN</th>\
+                        <td>' + (feature.properties['DEPARTAMEN'] !== null ? autolinker.link(String(feature.properties['DEPARTAMEN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROVINCIA</th>\
+                        <td>' + (feature.properties['PROVINCIA'] !== null ? autolinker.link(String(feature.properties['PROVINCIA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUNICIPIO</th>\
+                        <td>' + (feature.properties['MUNICIPIO'] !== null ? autolinker.link(String(feature.properties['MUNICIPIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_PUERTOSJURISDICCION_8_0() {
+            return {
+                pane: 'pane_PUERTOSJURISDICCION_8',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(50,87,128,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(72,123,182,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PUERTOSJURISDICCION_8');
+        map.getPane('pane_PUERTOSJURISDICCION_8').style.zIndex = 408;
+        map.getPane('pane_PUERTOSJURISDICCION_8').style['mix-blend-mode'] = 'normal';
+        var layer_PUERTOSJURISDICCION_8 = new L.geoJson(json_PUERTOSJURISDICCION_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PUERTOSJURISDICCION_8',
+            layerName: 'layer_PUERTOSJURISDICCION_8',
+            pane: 'pane_PUERTOSJURISDICCION_8',
+            onEachFeature: pop_PUERTOSJURISDICCION_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PUERTOSJURISDICCION_8_0(feature));
+            },
+        });
+        //bounds_group.addLayer(layer_PUERTOSJURISDICCION_8);
+        //map.addLayer(layer_PUERTOSJURISDICCION_8);
+        function pop_VIASSECUNDARIASJURISDICCION_9(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">gml_id</th>\
+                        <td>' + (feature.properties['gml_id'] !== null ? autolinker.link(String(feature.properties['gml_id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">entity</th>\
+                        <td>' + (feature.properties['entity'] !== null ? autolinker.link(String(feature.properties['entity']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_VIASSECUNDARIASJURISDICCION_9_0() {
+            return {
+                pane: 'pane_VIASSECUNDARIASJURISDICCION_9',
+                opacity: 1,
+                color: 'rgba(172,91,49,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_VIASSECUNDARIASJURISDICCION_9');
+        map.getPane('pane_VIASSECUNDARIASJURISDICCION_9').style.zIndex = 409;
+        map.getPane('pane_VIASSECUNDARIASJURISDICCION_9').style['mix-blend-mode'] = 'normal';
+        var layer_VIASSECUNDARIASJURISDICCION_9 = new L.geoJson(json_VIASSECUNDARIASJURISDICCION_9, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_VIASSECUNDARIASJURISDICCION_9',
+            layerName: 'layer_VIASSECUNDARIASJURISDICCION_9',
+            pane: 'pane_VIASSECUNDARIASJURISDICCION_9',
+            onEachFeature: pop_VIASSECUNDARIASJURISDICCION_9,
+            style: style_VIASSECUNDARIASJURISDICCION_9_0,
+        });
+        //bounds_group.addLayer(layer_VIASSECUNDARIASJURISDICCION_9);
+        //map.addLayer(layer_VIASSECUNDARIASJURISDICCION_9);
+        function pop_REDVIALFUNDAMENTALJURISDICCION_10(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ruta</th>\
+                        <td>' + (feature.properties['ruta'] !== null ? autolinker.link(String(feature.properties['ruta']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">rodadura</th>\
+                        <td>' + (feature.properties['rodadura'] !== null ? autolinker.link(String(feature.properties['rodadura']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">tipo</th>\
+                        <td>' + (feature.properties['tipo'] !== null ? autolinker.link(String(feature.properties['tipo']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">depto</th>\
+                        <td>' + (feature.properties['depto'] !== null ? autolinker.link(String(feature.properties['depto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">de</th>\
+                        <td>' + (feature.properties['de'] !== null ? autolinker.link(String(feature.properties['de']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">a</th>\
+                        <td>' + (feature.properties['a'] !== null ? autolinker.link(String(feature.properties['a']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">longitud</th>\
+                        <td>' + (feature.properties['longitud'] !== null ? autolinker.link(String(feature.properties['longitud']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_REDVIALFUNDAMENTALJURISDICCION_10_0(feature) {
+            switch(String(feature.properties['tipo'])) {
+                case 'CARRETERA':
+                    return {
+                pane: 'pane_REDVIALFUNDAMENTALJURISDICCION_10',
+                opacity: 1,
+                color: 'rgba(26,23,44,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'DOBLE VIA':
+                    return {
+                pane: 'pane_REDVIALFUNDAMENTALJURISDICCION_10',
+                opacity: 1,
+                color: 'rgba(116,88,54,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'EN DEFINICION':
+                    return {
+                pane: 'pane_REDVIALFUNDAMENTALJURISDICCION_10',
+                opacity: 1,
+                color: 'rgba(57,231,167,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_REDVIALFUNDAMENTALJURISDICCION_10',
+                opacity: 1,
+                color: 'rgba(230,125,164,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_REDVIALFUNDAMENTALJURISDICCION_10');
+        map.getPane('pane_REDVIALFUNDAMENTALJURISDICCION_10').style.zIndex = 410;
+        map.getPane('pane_REDVIALFUNDAMENTALJURISDICCION_10').style['mix-blend-mode'] = 'normal';
+        var layer_REDVIALFUNDAMENTALJURISDICCION_10 = new L.geoJson(json_REDVIALFUNDAMENTALJURISDICCION_10, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_REDVIALFUNDAMENTALJURISDICCION_10',
+            layerName: 'layer_REDVIALFUNDAMENTALJURISDICCION_10',
+            pane: 'pane_REDVIALFUNDAMENTALJURISDICCION_10',
+            onEachFeature: pop_REDVIALFUNDAMENTALJURISDICCION_10,
+            style: style_REDVIALFUNDAMENTALJURISDICCION_10_0,
+        });
+        bounds_group.addLayer(layer_REDVIALFUNDAMENTALJURISDICCION_10);
+        map.addLayer(layer_REDVIALFUNDAMENTALJURISDICCION_10);
+        function pop_SARFABILLIMANIJURISDICCION_11(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_SARFABILLIMANIJURISDICCION_11_0() {
+            return {
+                pane: 'pane_SARFABILLIMANIJURISDICCION_11',
+                opacity: 1,
+                color: 'rgba(228,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_SARFABILLIMANIJURISDICCION_11');
+        map.getPane('pane_SARFABILLIMANIJURISDICCION_11').style.zIndex = 411;
+        map.getPane('pane_SARFABILLIMANIJURISDICCION_11').style['mix-blend-mode'] = 'normal';
+        var layer_SARFABILLIMANIJURISDICCION_11 = new L.geoJson(json_SARFABILLIMANIJURISDICCION_11, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_SARFABILLIMANIJURISDICCION_11',
+            layerName: 'layer_SARFABILLIMANIJURISDICCION_11',
+            pane: 'pane_SARFABILLIMANIJURISDICCION_11',
+            onEachFeature: pop_SARFABILLIMANIJURISDICCION_11,
+            style: style_SARFABILLIMANIJURISDICCION_11_0,
+        });
+        //bounds_group.addLayer(layer_SARFABILLIMANIJURISDICCION_11);
+        //map.addLayer(layer_SARFABILLIMANIJURISDICCION_11);
+        function pop_RIOSSECUNDARIOSJURISDICCION_12(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">DEPARTAMENTO</th>\
+                        <td>' + (feature.properties['DEPARTAMEN'] !== null ? autolinker.link(String(feature.properties['DEPARTAMEN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROVINCIA</th>\
+                        <td>' + (feature.properties['PROVINCIA'] !== null ? autolinker.link(String(feature.properties['PROVINCIA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUNICIPIO</th>\
+                        <td>' + (feature.properties['MUNICIPIO'] !== null ? autolinker.link(String(feature.properties['MUNICIPIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">TIPO</th>\
+                        <td>' + (feature.properties['TIPO'] !== null ? autolinker.link(String(feature.properties['TIPO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">NOMBRE</th>\
+                        <td>' + (feature.properties['NOMBRE'] !== null ? autolinker.link(String(feature.properties['NOMBRE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CATEG_DES</th>\
+                        <td>' + (feature.properties['CATEG_DES'] !== null ? autolinker.link(String(feature.properties['CATEG_DES']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_RIOSSECUNDARIOSJURISDICCION_12_0(feature) {
+            switch(String(feature.properties['TIPO_DES'])) {
+                case 'Intermitente':
+                    return {
+                pane: 'pane_RIOSSECUNDARIOSJURISDICCION_12',
+                opacity: 1,
+                color: 'rgba(247,251,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'Permanente':
+                    return {
+                pane: 'pane_RIOSSECUNDARIOSJURISDICCION_12',
+                opacity: 1,
+                color: 'rgba(115,178,216,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_RIOSSECUNDARIOSJURISDICCION_12',
+                opacity: 1,
+                color: 'rgba(8,48,107,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_RIOSSECUNDARIOSJURISDICCION_12');
+        map.getPane('pane_RIOSSECUNDARIOSJURISDICCION_12').style.zIndex = 412;
+        map.getPane('pane_RIOSSECUNDARIOSJURISDICCION_12').style['mix-blend-mode'] = 'normal';
+        var layer_RIOSSECUNDARIOSJURISDICCION_12 = new L.geoJson(json_RIOSSECUNDARIOSJURISDICCION_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_RIOSSECUNDARIOSJURISDICCION_12',
+            layerName: 'layer_RIOSSECUNDARIOSJURISDICCION_12',
+            pane: 'pane_RIOSSECUNDARIOSJURISDICCION_12',
+            onEachFeature: pop_RIOSSECUNDARIOSJURISDICCION_12,
+            style: style_RIOSSECUNDARIOSJURISDICCION_12_0,
+        });
+        //bounds_group.addLayer(layer_RIOSSECUNDARIOSJURISDICCION_12);
+        //map.addLayer(layer_RIOSSECUNDARIOSJURISDICCION_12);
+        function pop_RIOSPRINCIPALES_13(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">NOMBRE</th>\
+                        <td>' + (feature.properties['NOMBRE'] !== null ? autolinker.link(String(feature.properties['NOMBRE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">CATEG_DES</th>\
+                        <td>' + (feature.properties['CATEG_DES'] !== null ? autolinker.link(String(feature.properties['CATEG_DES']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DEPARTAMEN</th>\
+                        <td>' + (feature.properties['DEPARTAMEN'] !== null ? autolinker.link(String(feature.properties['DEPARTAMEN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROVINCIA</th>\
+                        <td>' + (feature.properties['PROVINCIA'] !== null ? autolinker.link(String(feature.properties['PROVINCIA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MUNICIPIO</th>\
+                        <td>' + (feature.properties['MUNICIPIO'] !== null ? autolinker.link(String(feature.properties['MUNICIPIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_RIOSPRINCIPALES_13_0(feature) {
+            switch(String(feature.properties['NOMBRE'])) {
+                case 'RÍO BENI':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(223,182,17,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'RÍO CARANGUILLA':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(165,229,130,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'RÍO COROICO':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(236,52,61,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'RÍO DESAGUADERO':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(224,128,72,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'RÍO GUANAY':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(161,76,204,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'RÍO HEATH':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(107,236,230,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'RÍO KAKA':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(113,204,160,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'RÍO LACA JAHUIRA':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(72,240,86,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'RÍO LAUCA':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(206,236,109,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'RÍO MADRE DE DIOS':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(219,105,209,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'RÍO MARQUES':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(121,138,205,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'RÍO QUENDEQUE':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(221,129,174,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'RÍO TUICHI':
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(135,114,202,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_RIOSPRINCIPALES_13',
+                opacity: 1,
+                color: 'rgba(100,152,210,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(35,155,230,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_RIOSPRINCIPALES_13');
+        map.getPane('pane_RIOSPRINCIPALES_13').style.zIndex = 413;
+        map.getPane('pane_RIOSPRINCIPALES_13').style['mix-blend-mode'] = 'normal';
+        var layer_RIOSPRINCIPALES_13 = new L.geoJson(json_RIOSPRINCIPALES_13, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_RIOSPRINCIPALES_13',
+            layerName: 'layer_RIOSPRINCIPALES_13',
+            pane: 'pane_RIOSPRINCIPALES_13',
+            onEachFeature: pop_RIOSPRINCIPALES_13,
+            style: style_RIOSPRINCIPALES_13_0,
+        });
+        //bounds_group.addLayer(layer_RIOSPRINCIPALES_13);
+        //map.addLayer(layer_RIOSPRINCIPALES_13);
+        function pop_ISOTERMASJURISDICCION_17(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>BOISOTER_I</strong><br />' + (feature.properties['BOISOTER_I'] !== null ? autolinker.link(String(feature.properties['BOISOTER_I']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_ISOTERMASJURISDICCION_17_0(feature) {
+            if (feature.properties['BOISOTER_I'] >= 6.000000 && feature.properties['BOISOTER_I'] <= 10.000000 ) {
+                return {
+                pane: 'pane_ISOTERMASJURISDICCION_17',
+                opacity: 1,
+                color: 'rgba(255,245,240,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['BOISOTER_I'] >= 10.000000 && feature.properties['BOISOTER_I'] <= 12.000000 ) {
+                return {
+                pane: 'pane_ISOTERMASJURISDICCION_17',
+                opacity: 1,
+                color: 'rgba(252,190,165,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['BOISOTER_I'] >= 12.000000 && feature.properties['BOISOTER_I'] <= 14.000000 ) {
+                return {
+                pane: 'pane_ISOTERMASJURISDICCION_17',
+                opacity: 1,
+                color: 'rgba(251,112,80,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['BOISOTER_I'] >= 14.000000 && feature.properties['BOISOTER_I'] <= 16.800000 ) {
+                return {
+                pane: 'pane_ISOTERMASJURISDICCION_17',
+                opacity: 1,
+                color: 'rgba(211,32,32,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['BOISOTER_I'] >= 16.800000 && feature.properties['BOISOTER_I'] <= 24.000000 ) {
+                return {
+                pane: 'pane_ISOTERMASJURISDICCION_17',
+                opacity: 1,
+                color: 'rgba(103,0,13,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_ISOTERMASJURISDICCION_17');
+        map.getPane('pane_ISOTERMASJURISDICCION_17').style.zIndex = 417;
+        map.getPane('pane_ISOTERMASJURISDICCION_17').style['mix-blend-mode'] = 'normal';
+        var layer_ISOTERMASJURISDICCION_17 = new L.geoJson(json_ISOTERMASJURISDICCION_17, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ISOTERMASJURISDICCION_17',
+            layerName: 'layer_ISOTERMASJURISDICCION_17',
+            pane: 'pane_ISOTERMASJURISDICCION_17',
+            onEachFeature: pop_ISOTERMASJURISDICCION_17,
+            style: style_ISOTERMASJURISDICCION_17_0,
+        });
+        //bounds_group.addLayer(layer_ISOTERMASJURISDICCION_17);
+        //map.addLayer(layer_ISOTERMASJURISDICCION_17);
+        function pop_ISOYETASJURISDICCION_18(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (var i in e.target._eventParents) {
+                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
+                            e.target._eventParents[i].resetStyle(e.target);
+                        }
+                    }
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">BOISOYET_I</th>\
+                        <td>' + (feature.properties['BOISOYET_I'] !== null ? autolinker.link(String(feature.properties['BOISOYET_I']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_ISOYETASJURISDICCION_18_0(feature) {
+            if (feature.properties['BOISOYET_I'] >= 200.000000 && feature.properties['BOISOYET_I'] <= 600.000000 ) {
+                return {
+                pane: 'pane_ISOYETASJURISDICCION_18',
+                opacity: 1,
+                color: 'rgba(247,251,255,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['BOISOYET_I'] >= 600.000000 && feature.properties['BOISOYET_I'] <= 900.000000 ) {
+                return {
+                pane: 'pane_ISOYETASJURISDICCION_18',
+                opacity: 1,
+                color: 'rgba(200,220,240,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['BOISOYET_I'] >= 900.000000 && feature.properties['BOISOYET_I'] <= 1300.000000 ) {
+                return {
+                pane: 'pane_ISOYETASJURISDICCION_18',
+                opacity: 1,
+                color: 'rgba(115,178,216,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['BOISOYET_I'] >= 1300.000000 && feature.properties['BOISOYET_I'] <= 1800.000000 ) {
+                return {
+                pane: 'pane_ISOYETASJURISDICCION_18',
+                opacity: 1,
+                color: 'rgba(41,121,185,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+            if (feature.properties['BOISOYET_I'] >= 1800.000000 && feature.properties['BOISOYET_I'] <= 3900.000000 ) {
+                return {
+                pane: 'pane_ISOYETASJURISDICCION_18',
+                opacity: 1,
+                color: 'rgba(8,48,107,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_ISOYETASJURISDICCION_18');
+        map.getPane('pane_ISOYETASJURISDICCION_18').style.zIndex = 418;
+        map.getPane('pane_ISOYETASJURISDICCION_18').style['mix-blend-mode'] = 'normal';
+        var layer_ISOYETASJURISDICCION_18 = new L.geoJson(json_ISOYETASJURISDICCION_18, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ISOYETASJURISDICCION_18',
+            layerName: 'layer_ISOYETASJURISDICCION_18',
+            pane: 'pane_ISOYETASJURISDICCION_18',
+            onEachFeature: pop_ISOYETASJURISDICCION_18,
+            style: style_ISOYETASJURISDICCION_18_0,
+        });
+        //bounds_group.addLayer(layer_ISOYETASJURISDICCION_18);
+        //map.addLayer(layer_ISOYETASJURISDICCION_18);
+        var overlaysTree = [
+            {label: "OpenStreetMap", layer: tiles},
+            {label: "Google Maps", layer: googletiles},
+            {label: 'ISOYETAS <br /><table><tr><td style="text-align: center;"><img src="legend/ISOYETASJURISDICCION_18_2006000.png" /></td><td>200 - 600</td></tr><tr><td style="text-align: center;"><img src="legend/ISOYETASJURISDICCION_18_6009001.png" /></td><td>600 - 900</td></tr><tr><td style="text-align: center;"><img src="legend/ISOYETASJURISDICCION_18_90013002.png" /></td><td>900 - 1300</td></tr><tr><td style="text-align: center;"><img src="legend/ISOYETASJURISDICCION_18_130018003.png" /></td><td>1300 - 1800</td></tr><tr><td style="text-align: center;"><img src="legend/ISOYETASJURISDICCION_18_180039004.png" /></td><td>1800 - 3900</td></tr></table>', layer: layer_ISOYETASJURISDICCION_18},
+            {label: 'ISOTERMAS <br /><table><tr><td style="text-align: center;"><img src="legend/ISOTERMASJURISDICCION_17_6100.png" /></td><td>6 - 10</td></tr><tr><td style="text-align: center;"><img src="legend/ISOTERMASJURISDICCION_17_10121.png" /></td><td>10 - 12</td></tr><tr><td style="text-align: center;"><img src="legend/ISOTERMASJURISDICCION_17_12142.png" /></td><td>12 - 14</td></tr><tr><td style="text-align: center;"><img src="legend/ISOTERMASJURISDICCION_17_141683.png" /></td><td>14 - 16.8</td></tr><tr><td style="text-align: center;"><img src="legend/ISOTERMASJURISDICCION_17_168244.png" /></td><td>16.8 - 24</td></tr></table>', layer: layer_ISOTERMASJURISDICCION_17},
+            {label: 'RIOS PRINCIPALES<br /><table><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍOBENI0.png" /></td><td>RÍO BENI</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍOCARANGUILLA1.png" /></td><td>RÍO CARANGUILLA</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍOCOROICO2.png" /></td><td>RÍO COROICO</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍODESAGUADERO3.png" /></td><td>RÍO DESAGUADERO</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍOGUANAY4.png" /></td><td>RÍO GUANAY</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍOHEATH5.png" /></td><td>RÍO HEATH</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍOKAKA6.png" /></td><td>RÍO KAKA</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍOLACAJAHUIRA7.png" /></td><td>RÍO LACA JAHUIRA</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍOLAUCA8.png" /></td><td>RÍO LAUCA</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍOMADREDEDIOS9.png" /></td><td>RÍO MADRE DE DIOS</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍOMARQUES10.png" /></td><td>RÍO MARQUES</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍOQUENDEQUE11.png" /></td><td>RÍO QUENDEQUE</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_RÍOTUICHI12.png" /></td><td>RÍO TUICHI</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSPRINCIPALES_13_13.png" /></td><td></td></tr></table>', layer: layer_RIOSPRINCIPALES_13},
+            {label: 'RIOS SECUNDARIOS <br /><table><tr><td style="text-align: center;"><img src="legend/RIOSSECUNDARIOSJURISDICCION_12_Intermitente0.png" /></td><td>Intermitente</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSSECUNDARIOSJURISDICCION_12_Permanente1.png" /></td><td>Permanente</td></tr><tr><td style="text-align: center;"><img src="legend/RIOSSECUNDARIOSJURISDICCION_12_2.png" /></td><td></td></tr></table>', layer: layer_RIOSSECUNDARIOSJURISDICCION_12},
+            {label: 'RED VIAL FUNDAMENTAL <br /><table><tr><td style="text-align: center;"><img src="legend/REDVIALFUNDAMENTALJURISDICCION_10_CARRETERA0.png" /></td><td>CARRETERA</td></tr><tr><td style="text-align: center;"><img src="legend/REDVIALFUNDAMENTALJURISDICCION_10_DOBLEVIA1.png" /></td><td>DOBLE VIA</td></tr><tr><td style="text-align: center;"><img src="legend/REDVIALFUNDAMENTALJURISDICCION_10_ENDEFINICION2.png" /></td><td>EN DEFINICION</td></tr><tr><td style="text-align: center;"><img src="legend/REDVIALFUNDAMENTALJURISDICCION_10_3.png" /></td><td></td></tr></table>', layer: layer_REDVIALFUNDAMENTALJURISDICCION_10},
+            {label: '<img src="legend/VIASSECUNDARIASJURISDICCION_9.png" /> VIAS SECUNDARIAS ', layer: layer_VIASSECUNDARIASJURISDICCION_9},
+            {label: '<img src="legend/PUERTOSJURISDICCION_8.png" /> PUERTOS ', layer: layer_PUERTOSJURISDICCION_8},
+            {label: '<img src="legend/LINEADEALTATENSIONJURISDICCION_6.png" /> LINEA DE ALTA TENSION ', layer: layer_LINEADEALTATENSIONJURISDICCION_6},
+            {label: '<img src="legend/LINEADEMEDIATENSION_5.png" /> LINEA DE MEDIA TENSION', layer: layer_LINEADEMEDIATENSION_5},
+            {label: '<img src="legend/CENTROSEDUCATIVOSJURISDICCION_3.png" /> CENTROS EDUCATIVOS ', layer: layer_CENTROSEDUCATIVOSJURISDICCION_3},
+            {label: '<img src="legend/CENTROSDESALUDJURISDICCION_2.png" /> CENTROS DE SALUD ', layer: layer_CENTROSDESALUDJURISDICCION_2},
+            {label: '<img src="legend/AEROPUERTOSJURISDICCION_1.png" /> AEROPUERTOS ', layer: layer_AEROPUERTOSJURISDICCION_1},
+           ]
+        var lay = L.control.layers.tree(null, overlaysTree,{
+            namedToggle: true,
+            
+            //selectorBack: false,
+            //closedSymbol: '&#8862; &#x1f5c0;',
+            //openedSymbol: '&#8863; &#x1f5c1;',
+            //collapseAll: 'Collapse all',
+            //expandAll: 'Expand all',
+            collapsed: false, 
+        });
+        lay.addTo(map);
+        document.addEventListener("DOMContentLoaded", function() {
+            // set new Layers List height which considers toggle icon
+            function newLayersListHeight() {
+                var layerScrollbarElement = document.querySelector('.leaflet-control-layers-scrollbar');
+                if (layerScrollbarElement) {
+                    var layersListElement = document.querySelector('.leaflet-control-layers-list');
+                    var originalHeight = layersListElement.style.height 
+                        || window.getComputedStyle(layersListElement).height;
+                    var newHeight = parseFloat(originalHeight) - 50;
+                    layersListElement.style.height = newHeight + 'px';
+                }
+            }
+            var isLayersListExpanded = true;
+            var controlLayersElement = document.querySelector('.leaflet-control-layers');
+            var toggleLayerControl = document.querySelector('.leaflet-control-layers-toggle');
+            // toggle Collapsed/Expanded and apply new Layers List height
+            toggleLayerControl.addEventListener('click', function() {
+                if (isLayersListExpanded) {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                } else {
+                    controlLayersElement.classList.add('leaflet-control-layers-expanded');
+                }
+                isLayersListExpanded = !isLayersListExpanded;
+                newLayersListHeight()
+            });	
+			// apply new Layers List height if toggle layerstree
+			if (controlLayersElement) {
+				controlLayersElement.addEventListener('click', function(event) {
+					var toggleLayerHeaderPointer = event.target.closest('.leaflet-layerstree-header-pointer span');
+					if (toggleLayerHeaderPointer) {
+						newLayersListHeight();
+					}
+				});
+			}
+            // Collapsed/Expanded at Start to apply new height
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            // Collapsed touch/small screen
+            var isSmallScreen = window.innerWidth < 650;
+            if (isSmallScreen) {
+                setTimeout(function() {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                    isLayersListExpanded = !isLayersListExpanded;
+                }, 500);
+            }  
+        }); 
+        //-------------------------------------------------------------------------------
+        // Botón para limpiar ruta
+        document.getElementById('clear-route').addEventListener('click', function() {
+            if (currentRoute) {
+                map.removeControl(currentRoute);
+                currentRoute = null;
+            }
+            
+            // Mostrar todas las comunidades nuevamente
+            showAllCommunities();
+            selectedCommunity = null;
+            
+            document.getElementById('route-info').style.display = 'none';
+            map.setView(aeropuertoCoords, 12);
+        });
+
+        // Ajustar el mapa para que muestre todas las comunidades y el aeropuerto
+        setTimeout(() => {
+            const allCoords = [];
+            
+            // Recorrer todas las características y agregar coordenadas válidas
+            comunidadesData.features.forEach(f => {
+                const lat = parseFloat(f.properties.y);
+                const lng = parseFloat(f.properties.x);
+                
+                if (!isNaN(lat) && !isNaN(lng)) {
+                    allCoords.push([lat, lng]);
+                }
+            });
+            
+            allCoords.push(aeropuertoCoords);
+            
+            if (allCoords.length > 0) {
+                const bounds = L.latLngBounds(allCoords);
+                // map.fitBounds(bounds, { padding: [50, 50] }); // Esto hace autozoom a las comunidades
+            }
+        }, 1000);
+
+        // Manejar errores del routing
+        L.Routing.errorControl = function(options) {
+            return L.Routing.Itinerary.extend({
+                options: {
+                    containerClassName: 'routing-error-container'
+                },
+                
+                createContainer: function() {
+                    const container = L.Routing.Itinerary.prototype.createContainer.call(this);
+                    container.style.display = 'none';
+                    return container;
+                }
+            });
+        };
+
+        // Función para mostrar coordenadas en el click (útil para debugging)
+        map.on('click', function(e) {
+            console.log('Coordenadas click:', e.latlng.lat, e.latlng.lng);
+        });
+
+        console.log('Sistema de búsqueda y enrutamiento cargado correctamente');
+    </script>
+</body>
+</html>
