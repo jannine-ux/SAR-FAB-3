@@ -298,6 +298,30 @@
                                         class="popup-button report-button">
                                     📊 Reporte
                                 </button>
+                                 <button onclick="abrirReporteR1('reporte')" 
+                                        class="popup-button report-button">
+                                    📊 Rescate Acuatico
+                                </button>
+                                 <button onclick="abrirReporteR2('reporte')" 
+                                        class="popup-button report-button">
+                                    📊 Rescate Vertical
+                                </button>
+                                 <button onclick="abrirReporteR3('reporte')" 
+                                        class="popup-button report-button">
+                                    📊 Rescate Forestal
+                                </button>
+                                <button onclick="abrirReporteR4('reporte')" 
+                                        class="popup-button report-button">
+                                    📊 Transporte
+                                </button>
+                                <button onclick="abrirReporte01('reporte')" 
+                                        class="popup-button report-button">
+                                    📊 Andinismo
+                                </button>
+                                 <button onclick="abrirReporte02('reporte')" 
+                                        class="popup-button report-button">
+                                    📊 Atencion Prehospitalaria
+                                </button>
                             </div>
                         `;
                         layer.bindPopup(popupContent);
@@ -321,6 +345,54 @@
             // Simulamos la apertura del reporte PDF
             // En un caso real, aquí pondrías la URL real del PDF
             const url = `files/PERSONAL_EQUIPO2.pdf`;
+            window.open(url, '_blank');
+            console.log("Abriendo reporte para:", comunidadNombre, "URL:", url);
+        };
+        // Función para abrir reporte PDF (disponible globalmente)
+        window.abrirReporte01 = function(comunidadNombre) {
+            // Simulamos la apertura del reporte PDF
+            // En un caso real, aquí pondrías la URL real del PDF
+            const url = `files/ANDINISMO.pdf`;
+            window.open(url, '_blank');
+            console.log("Abriendo reporte para:", comunidadNombre, "URL:", url);
+        };
+        // Función para abrir reporte PDF (disponible globalmente)
+        window.abrirReporte02 = function(comunidadNombre) {
+            // Simulamos la apertura del reporte PDF
+            // En un caso real, aquí pondrías la URL real del PDF
+            const url = `files/ATENCION PREHOSPITALARIA.pdf`;
+            window.open(url, '_blank');
+            console.log("Abriendo reporte para:", comunidadNombre, "URL:", url);
+        };
+        // Función para abrir reporte PDF (disponible globalmente)
+        window.abrirReporteR3 = function(comunidadNombre) {
+            // Simulamos la apertura del reporte PDF
+            // En un caso real, aquí pondrías la URL real del PDF
+            const url = `files/BOMBERIA FORESTAL.pdf`;
+            window.open(url, '_blank');
+            console.log("Abriendo reporte para:", comunidadNombre, "URL:", url);
+        };
+        // Función para abrir reporte PDF (disponible globalmente)
+        window.abrirReporteR1 = function(comunidadNombre) {
+            // Simulamos la apertura del reporte PDF
+            // En un caso real, aquí pondrías la URL real del PDF
+            const url = `files/RESCATE ACUÁTICO.pdf`;
+            window.open(url, '_blank');
+            console.log("Abriendo reporte para:", comunidadNombre, "URL:", url);
+        };
+        // Función para abrir reporte PDF (disponible globalmente)
+        window.abrirReporteR2 = function(comunidadNombre) {
+            // Simulamos la apertura del reporte PDF
+            // En un caso real, aquí pondrías la URL real del PDF
+            const url = `files/RESCATE VERTICAL.pdf`;
+            window.open(url, '_blank');
+            console.log("Abriendo reporte para:", comunidadNombre, "URL:", url);
+        };
+        // Función para abrir reporte PDF (disponible globalmente)
+        window.abrirReporteR4 = function(comunidadNombre) {
+            // Simulamos la apertura del reporte PDF
+            // En un caso real, aquí pondrías la URL real del PDF
+            const url = `files/TRANSPORTE.pdf`;
             window.open(url, '_blank');
             console.log("Abriendo reporte para:", comunidadNombre, "URL:", url);
         };

@@ -369,39 +369,8 @@
                             </h2>
                             <div id="collapseBiota" class="accordion-collapse collapse" aria-labelledby="headingBiota" data-bs-parent="#accordionExample">
                                 <div class="accordion-body px-0">
-                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
-                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
-                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="222" id="222" name="222">
-                                            </div>
-                                            <div class="col-9 p-0 d-flex align-items-center">
-                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="222">
-                                                    FAB - Personal Rescatistas 
-                                                </label>
-                                            </div>
-                                            
-                                        </div>
-                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
-                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
-                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="219" id="219" name="219">
-                                            </div>
-                                            <div class="col-9 p-0 d-flex align-items-center">
-                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="219">
-                                                    FAB - Personal Militar
-                                                </label>
-                                            </div>
-                                            
-                                        </div>
-                                                                            <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
-                                            <div class="col-1 p-0 d-flex align-items-center justify-content-center">
-                                                <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="205" id="205" name="205">
-                                            </div>
-                                            <div class="col-9 p-0 d-flex align-items-center">
-                                                <label class="form-check-label w-100 alt-textoNegro alt-texto0" style="font-size: 0.8rem; text-overflow: ellipsis;" for="205">
-                                                    FAB - Equipos 
-                                                </label>
-                                            </div>
-                                            
-                                        </div>
+                                                                            
+                                   
                                         <div class="row alt-btnBlanco rounded mx-auto" style="margin-bottom: 1px;">
                                             <div class="col-1 p-0 d-flex align-items-center justify-content-center">
                                                 <input type="checkbox" unchecked class="alt-chboxCoberturaBase" value="370" id="370" name="370">
@@ -1837,7 +1806,12 @@
             // Click en la leyenda
             li.addEventListener("click", () => {
                 if (selectedLayer) {
-                    const prevName = selectedLayer.feature.properties.NOM;  //fid
+                    if (this.value=="473") {//educacion
+                        const prevName = selectedLayer.feature.properties.nombre_for;  //fid
+                    }else{
+                        const prevName = selectedLayer.feature.properties.NOM;  //fid
+                    }
+                    
                     selectedLayer.setStyle({ color: coloresAsignados[prevName] });
                 }
                 layer.setStyle({ color: "#e21b2380" });
@@ -1854,7 +1828,12 @@
             // Click en el polígono
             layer.on("click", () => {
                 if (selectedLayer) {
-                    const prevName = selectedLayer.feature.properties.NOM; //fid
+                    if (this.value=="473") {//educacion
+                        const prevName = selectedLayer.feature.properties.nombre_for;  //fid
+                    }else{
+                        const prevName = selectedLayer.feature.properties.NOM;  //fid
+                    }
+                    //const prevName = selectedLayer.feature.properties.NOM; //fid
                     selectedLayer.setStyle({ color: coloresAsignados[prevName] });
                 }
                 layer.setStyle({ color: "#e21b2380" });
