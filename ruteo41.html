@@ -23,7 +23,7 @@
         }
     </style>
 
-    <link rel="icon" href="images/logoemi.jpg">
+    <link rel="icon" href="images/logo_emi.png">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/leaflet.css">
     <link rel="stylesheet" href="assets/css/aos.css">
@@ -116,7 +116,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top alt-bgBlanco" id="navbar">
             <div class="container-fluid">
                 <a class="navbar-brand alt-textoAzul fw-bold" href="#">
-                    <img src="images/logo_emi.jpg" alt="Logo" width="65" height="34" class="d-inline-block align-text-top">
+                    <img src="images/logo_emi.png" alt="Logo" width="65" height="34" class="d-inline-block align-text-top">
                     SAR-FAB
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -205,7 +205,7 @@
 
     <script>
         // Coordenadas del aeropuerto (formato [lat, lng])
-        const aeropuertoCoords = [-16.512500000174839, -68.19222220009442];
+        const aeropuertoCoords = [-16.50595, -68.17043];
         
         // Datos de ejemplo de comunidades (reemplaza con tu JSON real)
        const comunidadesData = json_COMUNIDADESJURISDICCION_4;
@@ -238,7 +238,7 @@
             .addTo(map)
             .bindPopup(`
                 <div style="text-align: center;">
-                    <strong>🏢 Aeropuerto SAR</strong><br>
+                    <strong>🏢 Grupo SAR-FAB</strong><br>
                     <em>Punto de partida</em><br>
                     Coord: ${aeropuertoCoords[0].toFixed(6)}, ${aeropuertoCoords[1].toFixed(6)}
                 </div>
@@ -292,7 +292,7 @@
                                
                                 <button onclick="calcularRuta(${lat}, ${lng}, '${feature.properties.nomcomunid.replace(/'/g, "\\'")}')" 
                                         style="margin-top: 10px; padding: 5px 10px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; width: 100%;">
-                                    🗺️ Ruta desde Aeropuerto
+                                    🗺️ Ruta desde Grupo SAR-FAB
                                 </button>
                                 <button onclick="abrirReporte('reporte')" 
                                         class="popup-button report-button">
@@ -715,15 +715,15 @@
                         <td>' + (feature.properties['TIPO'] !== null ? autolinker.link(String(feature.properties['TIPO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">TIPO_DESCR</th>\
+                        <th scope="row">TIPO DESCRIPCION</th>\
                         <td>' + (feature.properties['TIPO_DESCR'] !== null ? autolinker.link(String(feature.properties['TIPO_DESCR']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">NOMBRE_EST</th>\
-                        <td>' + (feature.properties['NOMBRE_EST'] !== null ? autolinker.link(String(feature.properties['NOMBRE_EST']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">NOMBRE ESTABLECIMIENTO</th>\
+                        <td>' + (feature.properties['NOM'] !== null ? autolinker.link(String(feature.properties['NOM']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">DEPARTAMEN</th>\
+                        <th scope="row">DEPARTAMENTO</th>\
                         <td>' + (feature.properties['DEPARTAMEN'] !== null ? autolinker.link(String(feature.properties['DEPARTAMEN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -820,8 +820,8 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">nombre_for</th>\
-                        <td>' + (feature.properties['nombre_for'] !== null ? autolinker.link(String(feature.properties['nombre_for']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">NOMBRE</th>\
+                        <td>' + (feature.properties['NOM'] !== null ? autolinker.link(String(feature.properties['NOM']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">area_influ</th>\
@@ -832,12 +832,12 @@
                         <td>' + (feature.properties['FID_Bol_Mu'] !== null ? autolinker.link(String(feature.properties['FID_Bol_Mu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">DEPARTAMEN</th>\
-                        <td>' + (feature.properties['DEPARTAMEN'] !== null ? autolinker.link(String(feature.properties['DEPARTAMEN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">DEPARTAMENTO</th>\
+                        <td>' + (feature.properties['DEP'] !== null ? autolinker.link(String(feature.properties['DEP']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">PROVINCIA</th>\
-                        <td>' + (feature.properties['PROVINCIA'] !== null ? autolinker.link(String(feature.properties['PROVINCIA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['PROV'] !== null ? autolinker.link(String(feature.properties['PROV']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">MUNICIPIO</th>\

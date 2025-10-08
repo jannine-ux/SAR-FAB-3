@@ -182,7 +182,7 @@
         }
     </style>
 
-    <link rel="icon" href="images/logoemi.jpg">
+    <link rel="icon" href="images/logoemi.png">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/leaflet.css">
     <link rel="stylesheet" href="assets/css/aos.css">
@@ -217,7 +217,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top alt-bgBlanco" id="navbar">
             <div class="container-fluid">
                 <a class="navbar-brand alt-textoAzul fw-bold" href="#">
-                    <img src="images/logo_emi.jpg" alt="Logo" width="65" height="34" class="d-inline-block align-text-top">
+                    <img src="images/logo_emi.png" alt="Logo" width="65" height="34" class="d-inline-block align-text-top">
                     SAR-FAB
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -677,8 +677,8 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content alt-bgTransparenteBlurLight border-0 shadow-lg">
                 <div class="modal-header">
-                    <img class="mr-2" src="images/logo_emi.jpg" alt="logo_alt" width="100">
-                    <h6 class="modal-title alt-textoAzul alt-texto1" id="modalAcercaDeLabel">Acerca de Coberturas</h6>
+                    <img class="mr-2" src="images/logo_emi.png" alt="logo_alt" width="100">
+                    <h6 class="modal-title alt-textoAzul alt-texto1" id="modalAcercaDeLabel">Acerca de Grupo SAR – FAB</h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -693,7 +693,9 @@
                                 <div class="col-12 text-center d-flex align-items-center">
                                     <p class="alt-textoAzul alt-texto1" style="text-align: justify;">
                                         
-                                        Conoce más del Tiene por misión organizar y capacitar al personal voluntario en situaciones de desastres naturales o antrópicos, búsqueda, salvamento y rescate. Las coberturas que representan límites geográficos deben considerarse con carácter referencial, para la obtención de información oficial al respecto deberá remitirse a la entidad competente en cada país.
+                                        El grupo de búsqueda y rescate “SAR” de la Fuerza Aérea Boliviana tiene por misión:
+                                        “planificar, coordinar, ejecutar, ayudar y cooperar en la búsqueda y salvamento de vidas humanas y materiales en caso de accidentes aéreos, catástrofes que sean producidas por fenómenos naturales o acciones de guerra a fin de mantener la capacidad operativa de la aeronáutica nacional”.
+
                                     </p>
                                 </div>
                                 
@@ -715,15 +717,15 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content alt-bgTransparenteBlurLight border-0 shadow-lg">
                 <div class="modal-header">
-                    <img class="mr-2" src="images/logo_emi.jpg" alt="logo_alt" width="100">
-                    <h6 class="modal-title alt-textoAzul alt-texto1" id="modalBusquedaLabel">Métodos de Búsqueda Criminalística</h6>
+                    <img class="mr-2" src="images/logo_emi.png" alt="logo" width="100">
+                    <h6 class="modal-title alt-textoAzul alt-texto1" id="modalBusquedaLabel">Métodos de Búsqueda de Rescate </h6>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row gy-5 d-flex align-items-center">
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                             <h3>Información</h3>
-                            <p>Seleccione un método de búsqueda para visualizar los patrones de búsqueda criminalística en el radio especificado.</p>
+                            <p>Seleccione un método de búsqueda para visualizar los patrones de búsqueda  en el radio especificado.</p>
                             <p><strong>Espiral:</strong> Búsqueda en forma de espiral desde el centro.</p>
                             <p><strong>Franjas:</strong> Búsqueda en franjas paralelas.</p>
                             <p><strong>Cuadrilla:</strong> Búsqueda por sectores cuadriculados.</p>
@@ -996,9 +998,9 @@
             // Crear círculo con el radio especificado
             currentCircle = L.circle([lat, lng], {
                 color: '#3498db',
-                fillColor: '#3498db',
+                fillColor: '#EDC847',
                 fillOpacity: 0.1,
-                weight: 2,
+                weight: 3,
                 radius: radiusMeters
             }).addTo(map);
             
@@ -1205,7 +1207,7 @@
             // Crear una polyline para la espiral
             const spiralPolyline = L.polyline(spiralPoints, {
                 color: '#e74c3c',
-                weight: 2,
+                weight: 5,
                 opacity: 0.7
             }).addTo(map);
             
@@ -1234,7 +1236,7 @@
             stripLines.forEach(line => {
                 L.polyline(line, {
                     color: '#2ecc71',
-                    weight: 2,
+                    weight: 5,
                     opacity: 0.7
                 }).addTo(stripLayerGroup);
             });
@@ -1264,7 +1266,7 @@
             gridLines.forEach(line => {
                 L.polyline(line, {
                     color: '#f39c12',
-                    weight: 2,
+                    weight: 5,
                     opacity: 0.7
                 }).addTo(gridLayerGroup);
             });
@@ -1295,7 +1297,7 @@
             radialLines.forEach(line => {
                 L.polyline(line, {
                     color: '#9b59b6',
-                    weight: 2,
+                    weight: 5,
                     opacity: 0.7
                 }).addTo(radialLayerGroup);
             });
@@ -1521,7 +1523,7 @@
                                     return {
                                         color: coloresAsignados[name],
                                         weight: 2,
-                                        fillOpacity: 0.5
+                                        fillOpacity: 0.8
                                     };
                                 },
                                 onEachFeature: caracteristicaCobertura,
@@ -1539,7 +1541,7 @@
                                         coloresAsignados[name] = obtenerColor();
                                     }
                                     return {
-                                        color: coloresAsignados[name],weight: 2,fillOpacity: 0.5
+                                        color: coloresAsignados[name],weight: 2,fillOpacity: 0.8
                                     };
                                 },onEachFeature: caracteristicaCobertura,pointToLayer: puntoCapa,
                             }); 
@@ -1552,7 +1554,7 @@
                                         coloresAsignados[name] = obtenerColor();
                                     }
                                     return {
-                                        color: coloresAsignados[name],weight: 2,fillOpacity: 0.5
+                                        color: coloresAsignados[name],weight: 2,fillOpacity: 0.9
                                     };
                                 },onEachFeature: caracteristicaCobertura,pointToLayer: puntoCapa,
                             }); 
@@ -1565,7 +1567,7 @@
                                         coloresAsignados[name] = obtenerColor();
                                     }
                                     return {
-                                        color: coloresAsignados[name],weight: 2,fillOpacity: 0.5
+                                        color: coloresAsignados[name],weight: 2,fillOpacity: 0.9
                                     };
                                 },onEachFeature: caracteristicaCobertura,pointToLayer: puntoCapa,
                             }); 
@@ -1579,7 +1581,7 @@
                                         coloresAsignados[name] = obtenerColor();
                                     }
                                     return {
-                                        color: coloresAsignados[name],weight: 2,fillOpacity: 0.5
+                                        color: coloresAsignados[name],weight: 2,fillOpacity: 0.9
                                     };
                                 },onEachFeature: caracteristicaCobertura,pointToLayer: puntoCapa,
                             }); 
@@ -1670,10 +1672,10 @@
                 }
                 else if (this.value=="473") {//educacion
                             capasbase[varnomb] = L.geoJson(json_CENTROSEDUCATIVOSJURISDICCION_3, {
-                                style: feature => {const name = feature.properties.NOMBRE;  //fid
+                                style: feature => {const name = feature.properties.NOM;  //fid
                                     
                                     return {
-                                        color: 'rgba(128,17,25,1.0)',weight: 2,fillOpacity: 0.5
+                                        color: 'BLUE',weight: 2,fillOpacity: 0.5
                                     };
                                 },onEachFeature: caracteristicaCobertura,pointToLayer: puntoCapa,
                             }); 
@@ -1807,7 +1809,7 @@
             li.addEventListener("click", () => {
                 if (selectedLayer) {
                     if (this.value=="473") {//educacion
-                        const prevName = selectedLayer.feature.properties.nombre_for;  //fid
+                        const prevName = selectedLayer.feature.properties.NOM;  //fid
                     }else{
                         const prevName = selectedLayer.feature.properties.NOM;  //fid
                     }
@@ -1829,7 +1831,7 @@
             layer.on("click", () => {
                 if (selectedLayer) {
                     if (this.value=="473") {//educacion
-                        const prevName = selectedLayer.feature.properties.nombre_for;  //fid
+                        const prevName = selectedLayer.feature.properties.NOM;  //fid
                     }else{
                         const prevName = selectedLayer.feature.properties.NOM;  //fid
                     }
@@ -1862,7 +1864,7 @@
             var marker = L.circleMarker(latlng, {radius: 5}).addTo(map);
 
             map.on('zoomend', function() {
-                marker.bindTooltip(feature.properties.PAI + ': ' + feature.properties.PRO, {
+                marker.bindTooltip('NOMBRE: ' + feature.properties.NOM, {
                                                             direction: 'center',
                                                             permanent: map.getZoom() > 10 ? true : false, //true,
                                                             sticky: false,
@@ -1870,6 +1872,14 @@
                                                             opacity: 1,
                                                             // className: 'leaflet-tooltip-own'
                                                         });
+                /*marker.bindTooltip(feature.properties.PAI + ': ' + feature.properties.PRO, {
+                                                            direction: 'center',
+                                                            permanent: map.getZoom() > 10 ? true : false, //true,
+                                                            sticky: false,
+                                                            offset: [0, -32],
+                                                            opacity: 1,
+                                                            // className: 'leaflet-tooltip-own'
+                                                        });*/
             });
 
             return marker;
